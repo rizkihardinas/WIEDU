@@ -15,22 +15,16 @@
                 <span class="badge r-3 badge-primary pull-right">4</span>
             </a>
                 <ul class="treeview-menu">
-                    <li><a href="panel-page-products.html"><i class="icon icon-circle-o"></i>All Products</a>
-                    </li>
-                    <li><a href="panel-page-products-create.html"><i class="icon icon-add"></i>Add
-                        New </a>
-                    </li>
+                    <li><?php echo anchor('Produk/bahan_baku','<i class="icon icon-circle-o"></i>Bahan Baku'); ?></li>
+                    <li><?php echo anchor('Produk/resep','<i class="icon icon-circle-o"></i>Resep Menu'); ?></li>
+                    <li><?php echo anchor('Produk/Menu','<i class="icon icon-circle-o"></i>List Menu'); ?></li>
+                    
                 </ul>
             </li>
-            <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Users<i
+            <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Kasir<i
                     class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="panel-page-users.html"><i class="icon icon-circle-o"></i>All Users</a>
-                    </li>
-                    <li><a href="panel-page-users-create.html"><i class="icon icon-add"></i>Add User</a>
-                    </li>
-                    <li><a href="panel-page-profile.html"><i class="icon icon-user"></i>User Profile </a>
-                    </li>
+                    <li><?php echo anchor('Produk/Kasir','<i class="icon icon-circle-o"></i>Kasir'); ?></li>
                 </ul>
             </li>
             <li class="treeview no-b"><a href="#">
@@ -49,7 +43,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="header light mt-3"><strong>UI COMPONENTS</strong></li>
+            <li class="header light mt-3"><strong>Transaksi</strong></li>
             <li class="treeview ">
                 <a href="#">
                     <i class="icon icon-package text-lime s-18"></i> <span>Apps</span>
@@ -76,7 +70,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview">
+            <!-- <li class="treeview">
                 <a href="#">
                     <i class="icon icon-documents3 text-blue s-18"></i> <span>Pages</span>
                     <i class="icon icon-angle-left s-18 pull-right"></i>
@@ -212,11 +206,12 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview"><a href="#">
-                <i class="icon icon-bar-chart2 pink-text s-18"></i>
-                <span>Charts</span>
-                <i class="icon icon-angle-left s-18 pull-right"></i>
-            </a>
+            <li class="treeview">
+                <a href="#">
+                    <i class="icon icon-bar-chart2 pink-text s-18"></i>
+                    <span>Charts</span>
+                    <i class="icon icon-angle-left s-18 pull-right"></i>
+                </a>
                 <ul class="treeview-menu">
                     <li>
                         <a href="panel-element-charts-js.html"><i class="icon icon-area-chart pink-text s-14"></i><span>Charts.Js</span></a>
@@ -247,11 +242,12 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview"><a href="#">
-                <i class="icon icon-dialpad blue-text  s-18"></i>
-                <span>Extra</span>
-                <i class="icon icon-angle-left s-18 pull-right"></i>
-            </a>
+            <li class="treeview">
+                <a href="#">
+                    <i class="icon icon-dialpad blue-text  s-18"></i>
+                    <span>Extra</span>
+                    <i class="icon icon-angle-left s-18 pull-right"></i>
+                </a>
                 <ul class="treeview-menu">
                     <li>
                         <a href="panel-element-letters.html">
@@ -269,7 +265,7 @@
                     </a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
         </ul>
     </section>
 </aside>
