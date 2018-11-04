@@ -1,5 +1,5 @@
 <ul class="sidebar-menu">
-            <li class="header"><strong>MAIN NAVIGATION</strong></li>
+            <li class="header"><strong>MASTER DATA</strong></li>
             <li class="treeview"><a href="#">
                 <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>Dashboard</span>
             </a>
@@ -11,14 +11,13 @@
             </li>
             <li class="treeview"><a href="#">
                 <i class="icon icon icon-package blue-text s-18"></i>
-                <span>Products</span>
+                <span>Produk</span>
                 <span class="badge r-3 badge-primary pull-right">4</span>
             </a>
                 <ul class="treeview-menu">
                     <li><?php echo anchor('Produk/bahan_baku','<i class="icon icon-circle-o"></i>Bahan Baku'); ?></li>
                     <li><?php echo anchor('Produk/resep','<i class="icon icon-circle-o"></i>Resep Menu'); ?></li>
                     <li><?php echo anchor('Produk/Menu','<i class="icon icon-circle-o"></i>List Menu'); ?></li>
-                    
                 </ul>
             </li>
             <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Kasir<i
@@ -29,18 +28,14 @@
             </li>
             <li class="treeview no-b"><a href="#">
                 <i class="icon icon-package light-green-text s-18"></i>
-                <span>Inbox</span>
-                <span class="badge r-3 badge-success pull-right">20</span>
+                <span>Atribut Produk</span>
+                <i
+                    class="icon icon-angle-left s-18 pull-right"></i>
             </a>
                 <ul class="treeview-menu">
-                    <li><a href="panel-page-inbox.html"><i class="icon icon-circle-o"></i>All Messages</a>
-                    </li>
-                    <li><a href="panel7-inbox.html"><i class="icon icon-circle-o"></i>Panel7 - Inbox</a>
-                    </li>
-                    <li><a href="panel8-inbox.html"><i class="icon icon-circle-o"></i>Panel8 - Inbox</a>
-                    </li>
-                    <li><a href="panel-page-inbox-create.html"><i class="icon icon-add"></i>Compose</a>
-                    </li>
+                    <li><?php echo anchor('Produk/bahan_baku','<i class="icon icon-circle-o"></i>Brand'); ?></li>
+                    <li><?php echo anchor('Produk/resep','<i class="icon icon-circle-o"></i>Satuan'); ?></li>
+                    <!-- <li><?php echo anchor('Produk/Menu','<i class="icon icon-circle-o"></i>List Menu'); ?></li> -->
                 </ul>
             </li>
             <li class="header light mt-3"><strong>Transaksi</strong></li>
