@@ -231,10 +231,7 @@ $this->load->view('parts/menu');
                 <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
                     <li>
                         <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
-                            <i class="icon icon-home2"></i>Today</a>
-                    </li>
-                    <li>
-                        <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"><i class="icon icon-plus-circle mb-3"></i>Yesterday</a>
+                            <i class="icon icon-home2"></i>Hari ini</a>
                     </li>
                 </ul>
                 <a class="btn-fab absolute fab-right-bottom btn-primary" data-toggle="control-sidebar">
