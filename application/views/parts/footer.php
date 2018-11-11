@@ -161,6 +161,55 @@
 </div>
 <!--/#app -->
 <script src="<?php echo base_url() ?>assets/js/app.js"></script>
-<script>(function($,d){$.each(readyQ,function(i,f){$(f)});$.each(bindReadyQ,function(i,f){$(d).bind("ready",f)})})(jQuery,document)</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    /** add active class and stay opened when selected */
+    var url = window.location;
+
+    // for sidebar menu entirely but not cover treeview
+    $('ul.sidebar-menu a').filter(function() {
+       return this.href == url;
+    }).parent().addClass('active');
+
+
+    // for treeview
+    $('ul.treeview-menu a').filter(function() {
+       return this.href == url;
+    }).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active');
+    (function($,d){$.each(readyQ,function(i,f){$(f)});$.each(bindReadyQ,function(i,f){$(d).bind("ready",f)})})(jQuery,document)
+    $('#barcode').keypress(function(e) {
+        var barcode = $('#barcode').val();
+        if(e.which == 13) {
+            
+            if (barcode == '') {
+                swal({
+                  title: "Generate barcode ?",
+                  text: "Apakah barcode pabrik tidak tersedia ?",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+                })
+                .then((generateBarcode) => {
+                  if (generateBarcode) {
+                    $.ajax({
+                        url: '<?php echo base_url(); ?>Produk/generate_barcode',
+                        success:function(data){
+                            $('#barcode').val(data);
+                            $('#view_barcode').attr('src',"<?php echo base_url(); ?>/Produk/barcode/"+data);
+                            $('#nama_barang_panjang').focus();
+                        }
+                    });
+                  } else {
+                    $('#barcode').focus();
+                    $('#view_barcode').attr('src',"<?php echo base_url(); ?>/Produk/barcode/"+barcode);
+                  }
+                });
+            }else{
+                $('#nama_barang_panjang').focus();
+                $('#view_barcode').attr('src',"<?php echo base_url(); ?>/Produk/barcode/"+barcode);
+            }
+        }
+    });
+</script>
 </body>
 </html>

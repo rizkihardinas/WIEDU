@@ -15,53 +15,44 @@
                 <span class="badge r-3 badge-primary pull-right">4</span>
             </a>
                 <ul class="treeview-menu">
-                    <li><?php echo anchor('Produk/bahan_baku','<i class="icon icon-circle-o"></i>Bahan Baku'); ?></li>
-                    <li><?php echo anchor('Produk/resep','<i class="icon icon-circle-o"></i>Resep Menu'); ?></li>
-                    <li><?php echo anchor('Produk/Menu','<i class="icon icon-circle-o"></i>List Menu'); ?></li>
+                    <li><?php echo anchor('Produk/paket','<i class="icon icon-circle-o"></i>Paket'); ?></li>
+                    <li><?php echo anchor('Produk/produk','<i class="icon icon-circle-o"></i>Produk'); ?></li>
                 </ul>
             </li>
             <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Kasir<i
                     class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><?php echo anchor('Produk/Kasir','<i class="icon icon-circle-o"></i>Kasir'); ?></li>
+                    <li><?php echo anchor('Kasir','<i class="icon icon-circle-o"></i>Kasir'); ?></li>
                 </ul>
             </li>
             <li class="treeview no-b"><a href="#">
-                <i class="icon icon-package light-green-text s-18"></i>
+                <i class="icon icon-dropbox light-green-text s-18"></i>
                 <span>Atribut Produk</span>
                 <i
                     class="icon icon-angle-left s-18 pull-right"></i>
             </a>
                 <ul class="treeview-menu">
-                    <li><?php echo anchor('Produk/bahan_baku','<i class="icon icon-circle-o"></i>Brand'); ?></li>
-                    <li><?php echo anchor('Produk/resep','<i class="icon icon-circle-o"></i>Satuan'); ?></li>
+                    <li><?php echo anchor('Brand','<i class="icon icon-circle-o"></i>Brand'); ?></li>
+                    <li><?php echo anchor('Satuan','<i class="icon icon-circle-o"></i>Satuan'); ?></li>
+                    <li><?php echo anchor('Kategori','<i class="icon icon-circle-o"></i>Kategori'); ?></li>
+                    <li><?php echo anchor('Sub_kategori','<i class="icon icon-circle-o"></i>Sub Kategori'); ?></li>
                     <!-- <li><?php echo anchor('Produk/Menu','<i class="icon icon-circle-o"></i>List Menu'); ?></li> -->
                 </ul>
             </li>
             <li class="header light mt-3"><strong>Transaksi</strong></li>
-            <li class="treeview ">
+            <li class="treeview">
                 <a href="#">
-                    <i class="icon icon-package text-lime s-18"></i> <span>Apps</span>
+                    <i class="icon icon-chat light-blue-text  s-18"></i> <span>Transaksi</span>
                     <i class="icon icon-angle-left s-18 pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="panel-page-chat.html"><i class="icon icon-circle-o"></i>Chat</a>
+                    <li><?php echo anchor('purchase_order','<i class="icon icon-circle-o"></i>Purchase Order'); ?></li>
                     </li>
-                    <li><a href="panel7-tasks.html"><i class="icon icon-circle-o"></i>Tasks / Todo</a>
+                    <li><a href="panel7-tasks.html"><i class="icon icon-circle-o"></i>Penerimaan Barang</a>
                     </li>
-                    <li><a href="panel-page-calendar.html"><i class="icon icon-date_range"></i>Calender</a>
+                    <li><a href="panel7-tasks.html"><i class="icon icon-circle-o"></i>Stock Adjusment</a>
                     </li>
-                    <li><a href="panel-page-calendar2.html"><i class="icon icon-date_range"></i>Calender 2</a>
-                    </li>
-                    <li><a href="panel-page-contacts.html"><i class="icon icon-circle-o"></i>Contacts</a>
-                    </li>
-                    <li><a href="panel1-projects.html"><i class="icon icon-circle-o"></i>Panel1 - Projects</a>
-                    </li>
-                    <li><a href="panel7-projects-list.html"><i class="icon icon-circle-o"></i>Panel7 - Projects List</a>
-                    </li>
-                    <li><a href="panel7-invoices.html"><i class="icon icon-circle-o"></i>Invoices</a>
-                    <li><a href="panel7-meetings.html"><i class="icon icon-circle-o"></i>Meetings</a>
-                    <li><a href="panel7-payments.html"><i class="icon icon-circle-o"></i>Payments</a>
+                    <li><a href="panel7-tasks.html"><i class="icon icon-circle-o"></i>Stock Opname</a>
                     </li>
                 </ul>
             </li>
