@@ -163,6 +163,13 @@
 <script src="<?php echo base_url() ?>assets/js/app.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+    var d = new Date();
+    var month = d.getMonth()+1;
+    var day = d.getDate();
+
+    var output = ((''+month).length<2 ? '0' : '') + month + '/' +
+        ((''+day).length<2 ? '0' : '') + day+ '/'+d.getFullYear();
+    $('#tgl_input').val(output);
     /** add active class and stay opened when selected */
     var url = window.location;
 

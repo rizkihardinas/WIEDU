@@ -22,18 +22,22 @@ $this->load->view('parts/sidebar');
             <div class="row">
                 <div class="col-md-8 col-xs-12">
                     <div class="row">
-                        <div class="col-md-4 col-xs-12">
+                        <div class="col-md-6 col-xs-12">
+                            <label>No Purchase Order</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-danger"><i class="icon icon-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-12">
                             <label>Subtotal</label>
                             <h4>Rp. 0,00</h4>
                         </div>
-                        <div class="col-md-4 col-xs-12">
+                        <div class="col-md-3 col-xs-12">
                             <label>Jumlah Barang</label>
                             <h4>Rp. 0,00</h4>
-                        </div>
-                        <div class="col-md-4 col-xs-12">
-                            <label>&nbsp;</label>
-                            <br>
-                            <button class="btn btn-primary"><i class="icon icon-search"></i> Cari No PO</button>
                         </div>
 
                     </div>
