@@ -2,7 +2,7 @@
 /**
  * 
  */
-class Supplier extends CI_Controller
+class Stock_opname extends CI_Controller
 {
 	
 	function __construct()
@@ -10,7 +10,7 @@ class Supplier extends CI_Controller
 		parent::__construct();
 	}
 	function index(){
-		$this->load->view('supplier/supplier_view');
+		$this->load->view('stock_opname/stock_opname_view');
 	}
 }
  ?>

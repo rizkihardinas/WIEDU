@@ -24,7 +24,7 @@ $this->load->view('parts/sidebar');
                 <label>No Terima Barang</label>
                 <div class="input-group mb-3">
 
-                    <input type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" disabled>
                     <div class="input-group-append">
                         <button class="btn btn-danger"><i class="icon icon-search"></i></button>
                     </div>

@@ -22,36 +22,18 @@ $this->load->view('parts/sidebar');
             <div class="row">
                 <div class="col-md-8 col-xs-12">
                     <div class="row">
-                        <div class="col-md-6 col-xs-6">
-                            <label>No Purchase Order</label>
+                        <div class="col-md-6 col-xs-12">
+                            <label>No Adjusment</label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" disabled>
+                                <input type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
                                 <div class="input-group-append">
                                     <button class="btn btn-danger"><i class="icon icon-search"></i></button>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-xs-6">
-                            <label>Subtotal</label>
-                            <h4>Rp. 0,00</h4>
-                        </div>
-                        <div class="col-md-3 col-xs-6">
-                            <label>Jumlah Barang</label>
-                            <h4>0</h4>
-                        </div>
-
-                    </div>
-                    <hr>
-                    <div class="row">
                         <div class="col-md-6 col-xs-12">
-                            <label>Supplier</label>
-                            <select class="form-control">
-                                <option></option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 col-xs-12">
-                            <label>Nama Supplier</label>
-                            <h4>-</h4>
+                            <label>Adjustment Oleh</label>
+                            <input type="text" class="form-control" disabled>
                         </div>
                     </div>
                     <hr>
@@ -62,32 +44,21 @@ $this->load->view('parts/sidebar');
                                 <option></option>
                             </select>
                         </div>
-                        <div class="col-md-4 mb-2">
+                        <div class="col-md-2 mb-2">
                             <label for="validationCustom01">Qty</label>
-                            <input type="number" class="form-control" id="validationCustom01"
-                                   placeholder="0" value="" required>
+                            <input type="number" class="form-control">
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label for="validationCustom01">Satuan</label>
+                            <input type="text" class="form-control" disabled>
                         </div>
                         <div class="col-md-4 mb-2">
-                            <label for="validationCustom01">Harga Persatuan</label>
+                            <label for="validationCustom01">@ Harga Jual</label>
                             <input type="number" class="form-control" id="validationCustom01"
                                    placeholder="0" value="" required disabled>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-xs-12">
-                    <div class="">
-                        <h4>Detail Barang</h4>
-                        <hr> 
-                        <label>Barcode</label>
-                        <input type="text" class="form-control" disabled>
-                        <label>Nama Barang</label>
-                        <input type="text" class="form-control" disabled>
-                        <label>Satuan</label>
-                        <input type="text" class="form-control" disabled>
-                        <label>Stok tersedia</label>
-                        <input type="text" class="form-control" disabled>
-                    </div>
-                </div>  
             </div>
             <hr>
             <div class="row">
@@ -95,10 +66,15 @@ $this->load->view('parts/sidebar');
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                            	<th>No</th>
                                 <th>Nama Barang</th>
                                 <th>Qty</th>
                                 <th>Satuan</th>
+                                <th>Stock</th>
+                                <th>Stock Baru</th>
+                                <th>Selisih</th>
                                 <TH>Harga</TH>
+
                                 <th>
                                     <center>
                                         <i class="icon icon-cogs"></i>
