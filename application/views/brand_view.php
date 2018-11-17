@@ -43,6 +43,8 @@ $this->load->view('parts/sidebar');
             </div>
     </div>
 </div>
+
+..
 <?php 
 $this->load->view('parts/footer');
  ?>
