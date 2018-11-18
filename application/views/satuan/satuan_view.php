@@ -4,14 +4,14 @@ $this->load->view('parts/menu');
 $this->load->view('parts/sidebar');
  ?>
 <!--Sidebar End-->
-<div class="page has-sidebar-left height-full">
+<div class="page height-full">
     <header class="blue accent-3 relative nav-sticky">
         <div class="container-fluid text-white">
             <div class="row p-t-b-10 ">
                 <div class="col">
                     <h4>
                         <i class="icon-box"></i>
-                        Brand
+                        Satuan
                     </h4>
                 </div>
             </div>
@@ -23,7 +23,7 @@ $this->load->view('parts/sidebar');
                 <div class="col-md-8 ">
                     <div class="row">
                         <div class="col-md-4 mb-2">
-                            <label for="validationCustom01">Nama Brand</label>
+                            <label for="validationCustom01">Nama Satuan</label>
                             <input type="text" class="form-control">
                         </div>
                     </div>
@@ -32,7 +32,7 @@ $this->load->view('parts/sidebar');
                             <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Nama Brand</th>
+                                    <th>Nama Satuan</th>
                                     <th>Pengaturan</th>
                                 </tr>
                             </thead>
@@ -43,8 +43,6 @@ $this->load->view('parts/sidebar');
             </div>
     </div>
 </div>
-
-..
 <?php 
 $this->load->view('parts/footer');
  ?>

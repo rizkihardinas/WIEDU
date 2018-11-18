@@ -1,0 +1,13 @@
+.menu{
+	width: 20%;
+	margin: 10px 0 0 10px;
+}
+.menu:hover{
+	background:#03a9f4;
+}
+.menuname{
+	background:#ecf0f1;
+	text-align: center;
+	font-size: 4px;
+	text-transform: uppercase;
+}

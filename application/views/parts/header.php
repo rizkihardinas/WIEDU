@@ -7,9 +7,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="assets/img/basic/favicon.ico" type="image/x-icon">
-    <title>Paper</title>
+    <title>Wiedu POS</title>
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
     <style>
         .loader {
             position: fixed;
@@ -37,6 +38,8 @@
 </head>
 <body class="light">
 <div id="app">
+
+
 <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
     <section class="sidebar">
         <div class="w-80px mt-3 mb-3 ml-3">
@@ -53,7 +56,7 @@
                         <img class="user_avatar" src="<?php echo base_url(); ?>assets/img/dummy/u2.png" alt="User Image">
                     </div>
                     <div class="float-left info">
-                        <h6 class="font-weight-light mt-2 mb-1">Alexander Pierce</h6>
+                        <h6 class="font-weight-light mt-2 mb-1">Wilgan Jovisa</h6>
                         <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
                     </div>
                 </div>

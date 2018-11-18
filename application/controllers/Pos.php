@@ -2,7 +2,7 @@
 /**
  * 
  */
-class Satuan extends CI_Controller
+class Pos extends CI_Controller
 {
 	
 	function __construct()
@@ -10,7 +10,7 @@ class Satuan extends CI_Controller
 		parent::__construct();
 	}
 	function index(){
-		$this->load->view('satuan/satuan_view');
+		$this->load->view('pos/pos_view');
 	}
 }
  ?>

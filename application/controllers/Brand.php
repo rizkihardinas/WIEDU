@@ -10,7 +10,7 @@ class Brand extends CI_Controller
 		parent::__construct();
 	}
 	function index(){
-		$this->load->view('brand_view');
+		$this->load->view('brand/brand_view');
 	}
 }
  ?>

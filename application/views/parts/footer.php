@@ -1,3 +1,6 @@
+
+</div>
+
 <!-- Right Sidebar -->
 <aside class="control-sidebar fixed white ">
     <div class="slimScroll">

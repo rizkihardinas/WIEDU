@@ -1,4 +1,4 @@
-<?php 
+a<?php 
 $this->load->view('parts/header');
 $this->load->view('parts/menu');
 $this->load->view('parts/sidebar');
@@ -11,7 +11,7 @@ $this->load->view('parts/sidebar');
                 <div class="col">
                     <h4>
                         <i class="icon-box"></i>
-                        Sub Kategori
+                        Brand
                     </h4>
                 </div>
             </div>
@@ -23,11 +23,7 @@ $this->load->view('parts/sidebar');
                 <div class="col-md-8 ">
                     <div class="row">
                         <div class="col-md-4 mb-2">
-                            <label for="kode_kategori">Nama Kategori</label>
-                            <select class="form-control" id="kode_kategori"></select>
-                        </div>
-                        <div class="col-md-4 mb-2">
-                            <label for="validationCustom01">Nama Sub Kategori</label>
+                            <label for="validationCustom01">Nama Brand</label>
                             <input type="text" class="form-control">
                         </div>
                     </div>
@@ -36,7 +32,7 @@ $this->load->view('parts/sidebar');
                             <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Nama Sub Kategori</th>
+                                    <th>Nama Brand</th>
                                     <th>Pengaturan</th>
                                 </tr>
                             </thead>
