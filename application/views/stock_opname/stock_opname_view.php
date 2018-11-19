@@ -1,9 +1,4 @@
-<?php 
-$this->load->view('parts/header');
-$this->load->view('parts/menu');
-$this->load->view('parts/sidebar');
- ?>
-<!--Sidebar End-->
+
 <div class="page height-full">
 
 <div class="page has-sidebar-left height-full">
