@@ -1,7 +1,5 @@
 <?php 
-$this->load->view('parts/header');
-$this->load->view('parts/menu');
-$this->load->view('parts/sidebar');
+
  ?>
 <!--Sidebar End-->
     <div class="blue accent-2 p-5">

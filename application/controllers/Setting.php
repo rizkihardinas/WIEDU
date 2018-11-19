@@ -2,7 +2,7 @@
 /**
  * 
  */
-class Stock_opname extends CI_Controller
+class Setting extends CI_Controller
 {
 	
 	function __construct()
@@ -18,7 +18,7 @@ class Stock_opname extends CI_Controller
 		$this->load->view('parts/header');
 		$this->load->view('parts/menu',$data);
 		$this->load->view('parts/sidebar');
-		$this->load->view('stock_opname/stock_opname_view');
+		$this->load->view('setting/setting_view');
 	}
 }
  ?>

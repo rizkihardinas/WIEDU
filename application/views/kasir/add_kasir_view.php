@@ -1,8 +1,4 @@
-<?php 
-$this->load->view('parts/header');
-$this->load->view('parts/menu');
-$this->load->view('parts/sidebar');
- ?>
+
 <div class="page has-sidebar-left  height-full">
     <header class="blue accent-3 relative">
         <div class="container-fluid text-white">
