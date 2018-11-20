@@ -9,8 +9,6 @@ class Satuan extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('menu_model');
-	}
-	function index(){
 		$this->load->view('satuan/satuan_view');
 		$data['parent_menu'] = $this->menu_model->tampil_parent();
 		foreach ($data['parent_menu'] as $parent) {
@@ -19,6 +17,9 @@ class Satuan extends CI_Controller
 		$this->load->view('parts/header');
 		$this->load->view('parts/menu',$data);
 		$this->load->view('parts/sidebar');
+	}
+	function index(){
+		
 		$this->load->view('satuan_view');
 	}
 }

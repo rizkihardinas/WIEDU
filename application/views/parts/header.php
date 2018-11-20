@@ -11,6 +11,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
+     
     <style>
         .loader {
             position: fixed;

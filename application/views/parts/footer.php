@@ -166,6 +166,30 @@
 <script src="<?php echo base_url() ?>assets/js/app.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+    $(document).ready(function(){
+        var table = $('#table_level').DataTable({ 
+            "processing": true, //Feature control the processing indicator.
+            "serverSide": true, //Feature control DataTables' server-side processing mode.
+            "order": [], //Initial no order.
+            // Load data for the table's content from an Ajax source
+            "ajax": {
+                "url": '<?php echo base_url(); ?>/setting/get_level',
+                "type": "POST"
+            },
+            "sColumns": [
+                {"data": "kode_level",width:170},
+                {"data": "nama_level",width:220},
+                {"data": "action",width:170}
+            ]
+
+        });
+        $.ajax({
+            url:'<?php echo base_url() ?>/setting/get_kode',
+            success:function(data){
+                $('#kode_level').val(data);
+            }
+        });
+    });
     var d = new Date();
     var month = d.getMonth()+1;
     var day = d.getDate();
@@ -187,6 +211,81 @@
        return this.href == url;
     }).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active');
     (function($,d){$.each(readyQ,function(i,f){$(f)});$.each(bindReadyQ,function(i,f){$(d).bind("ready",f)})})(jQuery,document)
+    $(document).on('click','#btnSimpanLevel',function () {
+        var kode_level = $('#kode_level').val();
+        var nama_level = $('#nama_level').val();
+        var status = $(this).attr('status');
+        var value = {
+            kode_level:kode_level,
+            nama_level:nama_level,
+            status:status
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>setting/simpan_level',
+            type:'POST',
+            success:function(data){
+                
+                if (data == 0) {
+                    swal('Berhasil','Data berhasil dimasukan','success');
+                    var table = $('#table_level').DataTable();
+                    table.ajax.reload();
+                }else if (data == 2) {
+                    swal('Berhasil','Data berhasil diubah','success');
+                    var table = $('#table_level').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else if (data == 3) {
+                    swal('Peringatan','Data sudah tersedia','warning');
+                    var table = $('#table_level').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else{
+                    swal('Gagal','Data gagal dimasukan','danger');
+                }
+            }
+        })
+    });
+    $(document).on('click','#btnHapusLevel',function () {
+        var kode_level = $(this).attr('data-id');
+        var value = {
+            kode_level:kode_level
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>setting/delete_level',
+            type:'POST',
+            success:function(data){
+                if (data == 0) {
+                    swal('Berhasil','Data dihapus dimasukan','success');
+                    var table = $('#table_level').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else{
+                    swal('Gagal','Data gagal dihapus','danger');
+                }
+            }
+        })
+    });
+    $(document).on('click','#btnEditLevel',function () {
+        var kode_level = $(this).attr('data-id');
+        var value = {
+            kode_level:kode_level
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>setting/get_detail_level',
+            type:'POST',
+            success:function(data){
+                var json = jQuery.parseJSON(data);
+                var kode_level = json[0].kode_level;
+                var nama_level = json[0].nama_level;
+                $('#kode_level').val(kode_level);
+                $('#nama_level').val(nama_level);
+                $('#btnSimpanLevel').attr('status','ubah'); 
+            }
+        })
+    });
     $('#barcode').keypress(function(e) {
         var barcode = $('#barcode').val();
         if(e.which == 13) {
@@ -220,6 +319,8 @@
             }
         }
     });
+    
+
 </script>
 </body>
 </html>
