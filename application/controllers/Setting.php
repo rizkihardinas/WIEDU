@@ -81,5 +81,40 @@ class Setting extends CI_Controller
 		$this->load->view('parts/sidebar');
 		$this->load->view('setting/level_view');	
 	}
+	function hak_akses(){
+		$data['parent_menu'] = $this->menu_model->tampil_parent();
+		foreach ($data['parent_menu'] as $parent) {
+			$data['menu'] = $this->menu_model->tampil_menu($parent['kode_parent_menu']);
+		}
+		$data['level'] = $this->setting_model->get_level();
+		$data['data_menu'] = $this->setting_model->get_all_menu();
+		$this->load->view('parts/header');
+		$this->load->view('parts/menu',$data);
+		$this->load->view('parts/sidebar');
+		$this->load->view('setting/hak_akses_view',$data);	
+	}
+	function simpan_akses(){
+		$kode = $this->input->post('kode_akses');
+		$kode_level = $this->input->post('kode_level');
+		$kode_menu = $this->input->post('kode_menu');
+		$data  = array(
+			'kode_akses' =>$kode,
+			'kode_level' =>$kode_level,
+			'kode_menu'=>$kode_menu,
+			'status'=>'aktif'
+		);
+		$query = $this->setting_model->simpan_akses($data);
+		if ($query) {
+			echo 1;
+		}
+	}
+	function hapus_akses(){
+		$kode = $this->input->post('kode_akses');
+		$delete = $this->setting_model->hapus_akses($kode);
+		if ($delete) {
+			echo 1;
+		}
+	}
+
 }
  ?>
