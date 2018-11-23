@@ -319,7 +319,9 @@
             }
         }
     });
-    
+    $(document).on('click','#btnSimpanHakAkses',function(){
+        alert('a');
+    });
 
 </script>
 </body>
