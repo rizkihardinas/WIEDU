@@ -52,9 +52,6 @@
             </div>
     </div>
 </div>
-<script type="text/javascript">
-    
-</script>
 <?php 
 $this->load->view('parts/footer');
  ?>
