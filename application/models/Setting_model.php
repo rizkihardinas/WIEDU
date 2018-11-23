@@ -30,6 +30,10 @@ class Setting_model extends CI_Model
 		$this->db->where('kode_level',$kode_level);
 		$query = $this->db->get('tb_level');
 		return $query->result_array();	
+	}
+	function get_level(){
+		$query = $this->db->get('tb_level');
+		return $query->result_array();
 	}	
 	function get_all_level() {
         $this->datatables->select('kode_level,nama_level');
@@ -42,6 +46,17 @@ class Setting_model extends CI_Model
         $this->datatables->from('tb_level');
         $this->datatables->add_column('action','<button class="btn btn-warning" id="btnEditLevel" data-id="$1"><i class="icon icon-pencil"></i>&nbsp;</button><button class="btn btn-danger" id="btnHapusLevel" data-id="$1"><center><i class="icon icon-trash"></i></center></button>','kode_level');
         return $this->datatables->generate();
+	}
+	function get_all_menu(){
+		$query = $this->db->get('v_menu');
+		return $query->result_array();
+	}
+	function simpan_akses($data){
+		$query = $this->db->insert('tb_akses',$data);
+	}
+	function hapus_akses($kode){
+		$this->db->where('kode_akses',$kode);
+		$query = $this->db->delete('tb_akses');
 	}
 }
  ?>
