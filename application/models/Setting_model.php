@@ -51,12 +51,23 @@ class Setting_model extends CI_Model
 		$query = $this->db->get('v_menu');
 		return $query->result_array();
 	}
+	function get_all_menu_akses($kode){
+		$this->db->where('kode_level',$kode);
+		$query = $this->db->get('v_akses');
+		return $query->result_array();
+	}
 	function simpan_akses($data){
 		$query = $this->db->insert('tb_akses',$data);
 	}
 	function hapus_akses($kode){
 		$this->db->where('kode_akses',$kode);
 		$query = $this->db->delete('tb_akses');
+	}
+	function cek_detail_akses($kode_level,$kode_menu){
+		$this->db->where('kode_menu',$kode_menu);
+		$this->db->where('kode_level',$kode_level);
+		$query = $this->db->get('tb_akses');
+		return $query->result_array();	
 	}
 }
  ?>

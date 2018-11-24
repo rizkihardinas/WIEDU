@@ -183,13 +183,18 @@
             ]
 
         });
+        
+        getKode();
+    });
+    function getKode(){
         $.ajax({
             url:'<?php echo base_url() ?>/setting/get_kode',
             success:function(data){
                 $('#kode_level').val(data);
+                $('#kode_akses').val(data);
             }
         });
-    });
+    }
     var d = new Date();
     var month = d.getMonth()+1;
     var day = d.getDate();
@@ -244,7 +249,7 @@
                     swal('Gagal','Data gagal dimasukan','danger');
                 }
             }
-        })
+        });
     });
     $(document).on('click','#btnHapusLevel',function () {
         var kode_level = $(this).attr('data-id');
@@ -319,10 +324,80 @@
             }
         }
     });
-    $(document).on('click','#btnSimpanHakAkses',function(){
-        alert('a');
-    });
+    
+    function reload_akses(kode_level){
+        var kode_level = kode_level;
+        var value = {
+            kode_level:kode_level
+        };
+        $.ajax({
+            url:'<?php echo base_url() ?>Setting/get_yang_diakses',
+            type:'POST',
+            data:value,
+            success:function(data){
+                $('#table_yang_diakses').html(data);
+            }
+        });
+    }
+    $(document).change('#level',function(){
+        reload_akses($('#level').val());
 
+    });
+    $(document).on('click','#btnSimpanHakAkses',function(){
+        var kode_akses = $('#kode_akses').val();
+        var kode_level = $('#level').val();
+        var kode_menu = $(this).attr('data-id');
+        var value = {
+            kode_akses:kode_akses,
+            kode_level:kode_level,
+            kode_menu:kode_menu,
+        };
+        if (kode_level == '') {
+            swal('Peringatan!','Level tidak boleh kosong');
+        }else if (kode_menu == '') {
+            swal('Peringatan!','Menu harus dipilih');
+        }else{
+            $.ajax({
+                data:value,
+                url:'<?php echo base_url(); ?>setting/simpan_akses',
+                type:'POST',
+                success:function(data){
+                    if (data == 0) {
+                        reload_akses(kode_level);
+                        getKode();
+                    }else if (data == 3) {
+                        swal('Peringatan','Data sudah tersedia','warning');
+                        var table = $('#table_level').DataTable();
+                        table.ajax.reload(null,false);
+                    }
+                    else{
+                        swal('Gagal','Data gagal dimasukan','danger');
+                    }
+                }
+            });
+        }
+        
+    });
+    $(document).on('click','#btnHapusHakAkses',function () {
+        var kode_akses = $(this).attr('data-id');
+        var kode_level = $('#level').val();
+        var value = {
+            kode_akses:kode_akses
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>setting/hapus_akses',
+            type:'POST',
+            success:function(data){
+                if (data == 0) {
+                    reload_akses(kode_level);
+                }
+                else{
+                    swal('Gagal','Data gagal dihapus','danger');
+                }
+            }
+        })
+    });
 </script>
 </body>
 </html>

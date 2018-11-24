@@ -18,8 +18,10 @@
                 <div class="col-md-8 col-xs-12">
                     <div class="row">
                         <div class="col-md-4 mb-2">
+                            <input type="hidden" id="kode_akses">
                             <label for="level">Level</label>
-                            <select class="form-control" id="kode_level">
+                            <select class="form-control" id="level">
+                                <option value="">-- Pilih Level --</option>
                             <?php foreach ($level as $level): ?>
                                 <option value="<?php echo $level['kode_level'] ?>"><?php echo $level['nama_level'] ?></option>
                             <?php endforeach ?>
@@ -42,11 +44,21 @@
                                   <td>
                                       <center>
                                           <button class="btn btn-warning" id="btnSimpanHakAkses" data-id="<?php echo $menu['kode_menu'] ?>" data-parent="<?php echo $menu['kode_parent_menu'] ?>"><i class="icon icon-plus"></i></button>
-                                          <button class="btn btn-danger" id="btnHapusHakAkses" data-id="<?php echo $menu['kode_menu'] ?>" data-parent="<?php echo $menu['kode_parent_menu'] ?>"><i class="icon icon-trash"></i></button>
                                       </center>
                                   </td>
                                 </tr>    
                             <?php endforeach ?>
+                          </tbody>
+                        
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-hover table-bordered" >
+                        <thead>
+                            <th>Menu</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody id="table_yang_diakses">
                           </tbody>
                         
                     </table>
