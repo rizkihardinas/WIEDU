@@ -31,7 +31,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" style="height: 400px;overflow: auto">
+                    <label>Tambahkan menu untuk menambah akses</label>
                     <table class="table table-hover table-bordered">
                         <thead>
                             <th>Menu</th>
@@ -52,7 +53,8 @@
                         
                     </table>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" style="height: 400px;overflow: auto">
+                    <label>Menu yang sudah diakses</label>
                     <table class="table table-hover table-bordered" >
                         <thead>
                             <th>Menu</th>
