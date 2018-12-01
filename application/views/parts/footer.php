@@ -167,7 +167,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     $(document).ready(function(){
-        var table = $('#table_level').DataTable({ 
+        $('#table_level').DataTable({ 
             "processing": true, //Feature control the processing indicator.
             "serverSide": true, //Feature control DataTables' server-side processing mode.
             "order": [], //Initial no order.
@@ -183,6 +183,38 @@
             ]
 
         });
+        $('#table_menu').DataTable({ 
+            "processing": true, //Feature control the processing indicator.
+            "serverSide": true, //Feature control DataTables' server-side processing mode.
+            "order": [], //Initial no order.
+            // Load data for the table's content from an Ajax source
+            "ajax": {
+                "url": '<?php echo base_url(); ?>/setting/get_menu',
+                "type": "POST"
+            },
+            "sColumns": [
+                {"data": "kode_menu",width:170},
+                {"data": "nama_menu",width:220},
+                {"data": "action",width:170}
+            ]
+
+        });
+        $('#table_parent_menu').DataTable({ 
+            "processing": true, //Feature control the processing indicator.
+            "serverSide": true, //Feature control DataTables' server-side processing mode.
+            "order": [], //Initial no order.
+            // Load data for the table's content from an Ajax source
+            "ajax": {
+                "url": '<?php echo base_url(); ?>/setting/get_parent_menu',
+                "type": "POST"
+            },
+            "sColumns": [
+                {"data": "kode_parent_menu",width:170},
+                {"data": "nama_parent_menu",width:220},
+                {"data": "action",width:170}
+            ]
+
+        });
         
         getKode();
     });
@@ -192,6 +224,8 @@
             success:function(data){
                 $('#kode_level').val(data);
                 $('#kode_akses').val(data);
+                $('#kode_menu').val(data);
+                $('#kode_parent_menu').val(data);
             }
         });
     }
@@ -251,6 +285,82 @@
             }
         });
     });
+    $(document).on('click','#btnSimpanMenu',function () {
+        var kode_menu = $('#kode_menu').val();
+        var kode_parent_menu = $('#kode_parent_menu').val();
+        var nama_menu = $('#nama_menu').val();
+        var url = $('#url_menu').val();
+        var status = $(this).attr('status');
+        var value = {
+            kode_parent_menu:kode_parent_menu,
+            kode_menu:kode_menu,
+            nama_menu:nama_menu,
+            url:url,
+            status:status
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>setting/simpan_menu',
+            type:'POST',
+            success:function(data){
+                
+                if (data == 0) {
+                    swal('Berhasil','Data berhasil dimasukan','success');
+                    var table = $('#table_menu').DataTable();
+                    table.ajax.reload();
+                }else if (data == 2) {
+                    swal('Berhasil','Data berhasil diubah','success');
+                    var table = $('#table_menu').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else if (data == 3) {
+                    swal('Peringatan','Data sudah tersedia','warning');
+                    var table = $('#table_menu').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else{
+                    swal('Gagal','Data gagal dimasukan','danger');
+                }
+            }
+        });
+    });
+    $(document).on('click','#btnSimpanParentMenu',function () {
+        var kode_parent_menu = $('#kode_parent_menu').val();
+        var nama_parent_menu = $('#nama_parent_menu').val();
+        var icon = $('#icon').val();
+        var status = $(this).attr('status');
+        var value = {
+            kode_parent_menu:kode_parent_menu,
+            nama_parent_menu:nama_parent_menu,
+            icon:icon,
+            status:status
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>setting/simpan_parent_menu',
+            type:'POST',
+            success:function(data){
+                
+                if (data == 0) {
+                    swal('Berhasil','Data berhasil dimasukan','success');
+                    var table = $('#table_parent_menu').DataTable();
+                    table.ajax.reload();
+                }else if (data == 2) {
+                    swal('Berhasil','Data berhasil diubah','success');
+                    var table = $('#table_parent_menu').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else if (data == 3) {
+                    swal('Peringatan','Data sudah tersedia','warning');
+                    var table = $('#table_parent_menu').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else{
+                    swal('Gagal','Data gagal dimasukan','danger');
+                }
+            }
+        });
+    });
     $(document).on('click','#btnHapusLevel',function () {
         var kode_level = $(this).attr('data-id');
         var value = {
@@ -264,6 +374,48 @@
                 if (data == 0) {
                     swal('Berhasil','Data dihapus dimasukan','success');
                     var table = $('#table_level').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else{
+                    swal('Gagal','Data gagal dihapus','danger');
+                }
+            }
+        })
+    });
+    $(document).on('click','#btnHapusMenu',function () {
+        var kode_menu = $(this).attr('data-id');
+        var value = {
+            kode_menu:kode_menu
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>setting/delete_menu',
+            type:'POST',
+            success:function(data){
+                if (data == 0) {
+                    swal('Berhasil','Data dihapus dimasukan','success');
+                    var table = $('#table_menu').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else{
+                    swal('Gagal','Data gagal dihapus','danger');
+                }
+            }
+        })
+    });
+    $(document).on('click','#btnHapusParentMenu',function () {
+        var kode_parent_menu = $(this).attr('data-id');
+        var value = {
+            kode_parent_menu:kode_parent_menu
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>setting/delete_parent_menu',
+            type:'POST',
+            success:function(data){
+                if (data == 0) {
+                    swal('Berhasil','Data dihapus dimasukan','success');
+                    var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
@@ -288,6 +440,50 @@
                 $('#kode_level').val(kode_level);
                 $('#nama_level').val(nama_level);
                 $('#btnSimpanLevel').attr('status','ubah'); 
+            }
+        })
+    });
+    $(document).on('click','#btnEditMenu',function () {
+        var kode_menu = $(this).attr('data-id');
+        var value = {
+            kode_menu:kode_menu
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>setting/get_detail_menu',
+            type:'POST',
+            success:function(data){
+                var json = jQuery.parseJSON(data);
+                var kode_menu = json[0].kode_menu;
+                var kode_parent_menu = json[0].kode_parent_menu;
+                var nama_menu = json[0].nama_menu;
+                var url = json[0].url;
+                $('#kode_menu').val(kode_menu);
+                $('#kode_parent_menu').val(kode_parent_menu);
+                $('#nama_menu').val(nama_menu);
+                $('#url_menu').val(url);
+                $('#btnSimpanMenu').attr('status','ubah'); 
+            }
+        })
+    });
+    $(document).on('click','#btnEditParentMenu',function () {
+        var kode_parent_menu = $(this).attr('data-id');
+        var value = {
+            kode_parent_menu:kode_parent_menu
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>setting/get_detail_parent_menu',
+            type:'POST',
+            success:function(data){
+                var json = jQuery.parseJSON(data);
+                var kode_parent_menu = json[0].kode_parent_menu;
+                var nama_parent_menu = json[0].nama_parent_menu;
+                var icon = json[0].icon_parent_menu;
+                $('#kode_parent_menu').val(kode_parent_menu);
+                $('#nama_parent_menu').val(nama_parent_menu);
+                $('#icon').val(icon);
+                $('#btnSimpanParentMenu').attr('status','ubah'); 
             }
         })
     });
