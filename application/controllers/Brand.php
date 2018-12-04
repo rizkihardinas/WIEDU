@@ -18,7 +18,7 @@ class Brand extends CI_Controller
 		$this->load->view('parts/sidebar');
 	}
 	function index(){
-		$this->load->view('brand/brand_view')
+		$this->load->view('brand/brand_view');
 	}
 }
  ?>
