@@ -1,5 +1,5 @@
 
-<div class="page  has-sidebar-left height-full">
+<div class="page height-full">
     <header class="blue accent-3 relative">
         <div class="container-fluid text-white">
             <div class="row p-t-b-10 ">

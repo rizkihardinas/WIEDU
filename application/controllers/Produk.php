@@ -13,6 +13,9 @@ class Produk extends CI_Controller
 		//load in folder Zend
 		$this->zend->load('Zend/Barcode');
 		$this->load->model('menu_model');
+		
+	}
+	function paket(){
 		$data['parent_menu'] = $this->menu_model->tampil_parent();
 		foreach ($data['parent_menu'] as $parent) {
 			$data['menu'] = $this->menu_model->tampil_menu($parent['kode_parent_menu']);
@@ -20,12 +23,16 @@ class Produk extends CI_Controller
 		$this->load->view('parts/header');
 		$this->load->view('parts/menu',$data);
 		$this->load->view('parts/sidebar');
-	}
-	function paket(){
-		
 		$this->load->view('produk/paket_view');
 	}
 	function produk(){
+		$data['parent_menu'] = $this->menu_model->tampil_parent();
+		foreach ($data['parent_menu'] as $parent) {
+			$data['menu'] = $this->menu_model->tampil_menu($parent['kode_parent_menu']);
+		}
+		$this->load->view('parts/header');
+		$this->load->view('parts/menu',$data);
+		$this->load->view('parts/sidebar');
 		$this->load->view('produk/produk_view');
 	}
 	function barcode($code)
