@@ -166,7 +166,17 @@
 <script src="<?php echo base_url() ?>assets/js/app.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+    window.onbeforeunload = function() {
+        var x = doMyStaff();
+            return x;
+        };
+
+        function doMyStaff(){
+                console.log(new Date());
+                return "Check console there are Date!"
+        }
     $(document).ready(function(){
+        
         $('#table_level').DataTable({ 
             "processing": true, //Feature control the processing indicator.
             "serverSide": true, //Feature control DataTables' server-side processing mode.
