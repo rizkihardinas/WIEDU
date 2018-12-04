@@ -13,30 +13,49 @@
             </div>
         </div>
     </header>
-    <div class="container-fluid relative animatedParent animateOnce">
-        <br>
-            <div class="row">
-                <div class="col-md-8 ">
-                    <div class="row">
-                        <div class="col-md-4 mb-2">
-                            <label for="validationCustom01">Nama Satuan</label>
-                            <input type="text" class="form-control">
+    
+    <div class="container-fluid relative animatedParent animateOnce p-t-b-10">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card no-b no-r ">
+                    <div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-12 m-0">
+                            <label for="satuan">Nama Satuan</label>
+                            <input type="text" class="form-control" id="nama_satuan">
+                            <input type="hidden" class="form-control" id="kode_satuan">
+                            <br>
+                            <button class="btn btn-primary" id="btnSimpanSatuan" status="simpan"><i class="icon icon-save"></i> Simpan</button>
                         </div>
+
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table class="table table-bordered">
+                </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading"></div>
+                    <div class="panel-body">
+                        <table class="table table-bordered" id="table_satuan">
                             <thead>
                                 <tr>
-                                    <th>Nama Satuan</th>
-                                    <th>Pengaturan</th>
+                                    <th>No</th>
+                                    <th>Satuan</th>
+                                    <th>
+                                        <center>
+                                            <i class="icon icon-cogs"></i>
+                                        </center>
+                                    </th>
                                 </tr>
                             </thead>
                         </table>
-                        </div>
                     </div>
-                </div>  
+                </div>
             </div>
+        </div>
     </div>
 </div>
 <?php 
