@@ -1,7 +1,10 @@
         <ul class="sidebar-menu">
-            <?php foreach ($parent_menu as $data): ?>
+            <?php foreach ($parent_menu as $data):
+            $a=array("red","green","blue","purple","brown");
+            $random_keys=array_rand($a,3);
+             ?>
                 <li class="treeview"><a href="#">
-                    <i class="icon icon-<?php echo $data['icon_parent_menu'] ?> purple-text s-18"></i> <span><?php echo $data['nama_parent_menu'] ?></span>
+                    <i class="icon icon-<?php echo $data['icon_parent_menu'] ?> <?php echo $a[$random_keys[0]] ?>-text s-18"></i> <span><?php echo $data['nama_parent_menu'] ?></span>
                 </a>
                     <ul class="treeview-menu">
                         <li>

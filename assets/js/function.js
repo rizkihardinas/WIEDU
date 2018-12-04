@@ -1,172 +1,3 @@
-
-</div>
-
-<!-- Right Sidebar -->
-<aside class="control-sidebar fixed white ">
-    <div class="slimScroll">
-        <div class="sidebar-header">
-            <h4>Activity List</h4>
-            <a href="#" data-toggle="control-sidebar" class="paper-nav-toggle  active"><i></i></a>
-        </div>
-        <div class="p-3">
-            <div>
-                <div class="my-3">
-                    <small>25% Complete</small>
-                    <div class="progress" style="height: 3px;">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                </div>
-                <div class="my-3">
-                    <small>45% Complete</small>
-                    <div class="progress" style="height: 3px;">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 45%;" aria-valuenow="45"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                </div>
-                <div class="my-3">
-                    <small>60% Complete</small>
-                    `
-                    <div class="progress" style="height: 3px;">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;" aria-valuenow="60"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                </div>
-                <div class="my-3">
-                    <small>75% Complete</small>
-                    <div class="progress" style="height: 3px;">
-                        <div class="progress-bar bg-error" role="progressbar" style="width: 75%;" aria-valuenow="75"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                </div>
-                <div class="my-3">
-                    <small>100% Complete</small>
-                    <div class="progress" style="height: 3px;">
-                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="p-3 bg-primary text-white">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5 class="font-weight-normal s-14">Sodium</h5>
-                    <span class="font-weight-lighter text-primary">Spark Bar</span>
-                    <div> Oxygen
-                        <span class="text-primary">
-                                                    <i class="icon icon-arrow_downward"></i> 67%</span>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <canvas width="100" height="70" data-chart="spark" data-chart-type="bar"
-                            data-dataset="[[28,68,41,43,96,45,100,28,68,41,43,96,45,100,28,68,41,43,96,45,100,28,68,41,43,96,45,100]]"
-                            data-labels="['a','b','c','d','e','f','g','h','i','j','k','l','m','n','a','b','c','d','e','f','g','h','i','j','k','l','m','n']">
-                    </canvas>
-                </div>
-            </div>
-        </div>
-        <div class="table-responsive">
-            <table id="recent-orders" class="table table-hover mb-0 ps-container ps-theme-default">
-                <tbody>
-                <tr>
-                    <td>
-                        <a href="#">INV-281281</a>
-                    </td>
-                    <td>
-                        <span class="badge badge-success">Paid</span>
-                    </td>
-                    <td>$ 1228.28</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="#">INV-01112</a>
-                    </td>
-                    <td>
-                        <span class="badge badge-warning">Overdue</span>
-                    </td>
-                    <td>$ 5685.28</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="#">INV-281012</a>
-                    </td>
-                    <td>
-                        <span class="badge badge-success">Paid</span>
-                    </td>
-                    <td>$ 152.28</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="#">INV-01112</a>
-                    </td>
-                    <td>
-                        <span class="badge badge-warning">Overdue</span>
-                    </td>
-                    <td>$ 5685.28</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="#">INV-281012</a>
-                    </td>
-                    <td>
-                        <span class="badge badge-success">Paid</span>
-                    </td>
-                    <td>$ 152.28</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="sidebar-header">
-            <h4>Activity</h4>
-            <a href="#" data-toggle="control-sidebar" class="paper-nav-toggle  active"><i></i></a>
-        </div>
-        <div class="p-4">
-            <div class="activity-item activity-primary">
-                <div class="activity-content">
-                    <small class="text-muted">
-                        <i class="icon icon-user position-left"></i> 5 mins ago
-                    </small>
-                    <p>Lorem ipsum dolor sit amet conse ctetur which ascing elit users.</p>
-                </div>
-            </div>
-            <div class="activity-item activity-error">
-                <div class="activity-content">
-                    <small class="text-muted">
-                        <i class="icon icon-user position-left"></i> 8 mins ago
-                    </small>
-                    <p>Lorem ipsum dolor sit ametcon the sectetur that ascing elit users.</p>
-                </div>
-            </div>
-            <div class="activity-item activity-success">
-                <div class="activity-content">
-                    <small class="text-muted">
-                        <i class="icon icon-user position-left"></i> 10 mins ago
-                    </small>
-                    <p>Lorem ipsum dolor sit amet cons the ecte tur and adip ascing elit users.</p>
-                </div>
-            </div>
-            <div class="activity-item activity-warning">
-                <div class="activity-content">
-                    <small class="text-muted">
-                        <i class="icon icon-user position-left"></i> 12 mins ago
-                    </small>
-                    <p>Lorem ipsum dolor sit amet consec tetur adip ascing elit users.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</aside>
-<!-- /.right-sidebar -->
-<!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
-<div class="control-sidebar-bg shadow white fixed"></div>
-</div>
-<!--/#app -->
-<script src="<?php echo base_url() ?>assets/js/app.js"></script>
-<script src="<?php echo base_url() ?>assets/js/toast.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
     $(document).ready(function(){
         $('#table_level').DataTable({ 
             "processing": true, //Feature control the processing indicator.
@@ -174,7 +5,7 @@
             "order": [], //Initial no order.
             // Load data for the table's content from an Ajax source
             "ajax": {
-                "url": '<?php echo base_url(); ?>/setting/get_level',
+                "url": 'WIEDU//setting/get_level',
                 "type": "POST"
             },
             "sColumns": [
@@ -190,7 +21,7 @@
             "order": [], //Initial no order.
             // Load data for the table's content from an Ajax source
             "ajax": {
-                "url": '<?php echo base_url(); ?>/setting/get_menu',
+                "url": 'WIEDU//setting/get_menu',
                 "type": "POST"
             },
             "sColumns": [
@@ -206,7 +37,7 @@
             "order": [], //Initial no order.
             // Load data for the table's content from an Ajax source
             "ajax": {
-                "url": '<?php echo base_url(); ?>/kategori/get_kategori',
+                "url": 'WIEDU//kategori/get_kategori',
                 "type": "POST"
             },
             "sColumns": [
@@ -222,7 +53,7 @@
             "order": [], //Initial no order.
             // Load data for the table's content from an Ajax source
             "ajax": {
-                "url": '<?php echo base_url(); ?>/sub_kategori/get_sub_kategori',
+                "url": 'WIEDU//sub_kategori/get_sub_kategori',
                 "type": "POST"
             },
             "sColumns": [
@@ -239,7 +70,7 @@
             "order": [], //Initial no order.
             // Load data for the table's content from an Ajax source
             "ajax": {
-                "url": '<?php echo base_url(); ?>/setting/get_parent_menu',
+                "url": 'WIEDU//setting/get_parent_menu',
                 "type": "POST"
             },
             "sColumns": [
@@ -297,32 +128,26 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>setting/simpan_level',
+            url:'WIEDU/setting/simpan_level',
             type:'POST',
             success:function(data){
                 
                 if (data == 0) {
-                    $.toast({
-                        heading: 'Berhasil',
-                        text: 'Data berhasil diinput',
-                        icon: 'success',
-                        loader: true,        // Change it to false to disable loader
-                        loaderBg: '#9EC600'  // To change the background
-                    });
+                    swal('Berhasil','Data berhasil dimasukan','success');
                     var table = $('#table_level').DataTable();
                     table.ajax.reload();
                 }else if (data == 2) {
-                    toast('Berhasil','Data berhasil diubah','success');
+                    swal('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_level').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    toast('Peringatan','Data sudah tersedia','warning');
+                    swal('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_level').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    toast('Gagal','Data gagal dimasukan','danger');
+                    swal('Gagal','Data gagal dimasukan','error');
                 }
             }
         });
@@ -338,26 +163,26 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>Kategori/simpan_kategori',
+            url:'WIEDU/Kategori/simpan_kategori',
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    toast('Berhasil','Data berhasil dimasukan','success');
+                    swal('Berhasil','Data berhasil dimasukan','success');
                     var table = $('#table_kategori').DataTable();
                     table.ajax.reload();
                     getKode();
                 }else if (data == 2) {
-                    toast('Berhasil','Data berhasil diubah','success');
+                    swal('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_kategori').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    toast('Peringatan','Data sudah tersedia','warning');
+                    swal('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_kategori').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    toast('Gagal','Data gagal dimasukan','error');
+                    swal('Gagal','Data gagal dimasukan','error');
                 }
             }
         });
@@ -375,26 +200,26 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>sub_Kategori/simpan_sub_kategori',
+            url:'WIEDU/sub_Kategori/simpan_sub_kategori',
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    toast('Berhasil','Data berhasil dimasukan','success');
+                    swal('Berhasil','Data berhasil dimasukan','success');
                     var table = $('#table_sub_kategori').DataTable();
                     table.ajax.reload();
                     getKode();
                 }else if (data == 2) {
-                    toast('Berhasil','Data berhasil diubah','success');
+                    swal('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_sub_kategori').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    toast('Peringatan','Data sudah tersedia','warning');
+                    swal('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_sub_kategori').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    toast('Gagal','Data gagal dimasukan','error');
+                    swal('Gagal','Data gagal dimasukan','error');
                 }
             }
         });
@@ -414,32 +239,26 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>setting/simpan_menu',
+            url:'WIEDU/setting/simpan_menu',
             type:'POST',
             success:function(data){
                 
                 if (data == 0) {
-                    $.toast({
-                        heading: 'Berhasil',
-                        text: 'Data berhasil diinput',
-                        icon: 'success',
-                        loader: true,        // Change it to false to disable loader
-                        loaderBg: '#9EC600'  // To change the background
-                    })
+                    swal('Berhasil','Data berhasil dimasukan','success');
                     var table = $('#table_menu').DataTable();
                     table.ajax.reload();
                 }else if (data == 2) {
-                    toast('Berhasil','Data berhasil diubah','success');
+                    swal('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    toast('Peringatan','Data sudah tersedia','warning');
+                    swal('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    toast('Gagal','Data gagal dimasukan','danger');
+                    swal('Gagal','Data gagal dimasukan','error');
                 }
             }
         });
@@ -457,32 +276,26 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>setting/simpan_parent_menu',
+            url:'WIEDU/setting/simpan_parent_menu',
             type:'POST',
             success:function(data){
                 
                 if (data == 0) {
-                    $.toast({
-                        heading: 'Berhasil',
-                        text: 'Data berhasil diinput',
-                        icon: 'success',
-                        loader: true,        // Change it to false to disable loader
-                        loaderBg: '#9EC600'  // To change the background
-                    });
+                    swal('Berhasil','Data berhasil dimasukan','success');
                     var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload();
                 }else if (data == 2) {
-                    toast('Berhasil','Data berhasil diubah','success');
+                    swal('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    toast('Peringatan','Data sudah tersedia','warning');
+                    swal('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    toast('Gagal','Data gagal dimasukan','danger');
+                    swal('Gagal','Data gagal dimasukan','error');
                 }
             }
         });
@@ -494,16 +307,16 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>setting/delete_level',
+            url:'WIEDU/setting/delete_level',
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    toast('Berhasil','Data dihapus dimasukan','success');
+                    swal('Berhasil','Data dihapus dimasukan','success');
                     var table = $('#table_level').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    toast('Gagal','Data gagal dihapus','danger');
+                    swal('Gagal','Data gagal dihapus','error');
                 }
             }
         })
@@ -515,16 +328,16 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>setting/delete_menu',
+            url:'WIEDU/setting/delete_menu',
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    toast('Berhasil','Data dihapus dimasukan','success');
+                    swal('Berhasil','Data dihapus dimasukan','success');
                     var table = $('#table_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    toast('Gagal','Data gagal dihapus','danger');
+                    swal('Gagal','Data gagal dihapus','error');
                 }
             }
         })
@@ -536,16 +349,16 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>setting/delete_parent_menu',
+            url:'WIEDU/setting/delete_parent_menu',
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    toast('Berhasil','Data dihapus dimasukan','success');
+                    swal('Berhasil','Data dihapus dimasukan','success');
                     var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    toast('Gagal','Data gagal dihapus','danger');
+                    swal('Gagal','Data gagal dihapus','error');
                 }
             }
         })
@@ -557,7 +370,7 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>setting/get_detail_level',
+            url:'WIEDU/setting/get_detail_level',
             type:'POST',
             success:function(data){
                 var json = jQuery.parseJSON(data);
@@ -576,7 +389,7 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>kategori/get_detail_kategori',
+            url:'WIEDU/kategori/get_detail_kategori',
             type:'POST',
             success:function(data){
                 var json = jQuery.parseJSON(data);
@@ -595,7 +408,7 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>sub_kategori/get_detail_sub_kategori',
+            url:'WIEDU/sub_kategori/get_detail_sub_kategori',
             type:'POST',
             success:function(data){
                 var json = jQuery.parseJSON(data);
@@ -616,7 +429,7 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>setting/get_detail_menu',
+            url:'WIEDU/setting/get_detail_menu',
             type:'POST',
             success:function(data){
                 var json = jQuery.parseJSON(data);
@@ -639,7 +452,7 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>setting/get_detail_parent_menu',
+            url:'WIEDU/setting/get_detail_parent_menu',
             type:'POST',
             success:function(data){
                 var json = jQuery.parseJSON(data);
@@ -658,7 +471,7 @@
         if(e.which == 13) {
             
             if (barcode == '') {
-                toast({
+                swal({
                   title: "Generate barcode ?",
                   text: "Apakah barcode pabrik tidak tersedia ?",
                   icon: "warning",
@@ -668,21 +481,21 @@
                 .then((generateBarcode) => {
                   if (generateBarcode) {
                     $.ajax({
-                        url: '<?php echo base_url(); ?>Produk/generate_barcode',
+                        url: 'WIEDU/Produk/generate_barcode',
                         success:function(data){
                             $('#barcode').val(data);
-                            $('#view_barcode').attr('src',"<?php echo base_url(); ?>/Produk/barcode/"+data);
+                            $('#view_barcode').attr('src',"WIEDU//Produk/barcode/"+data);
                             $('#nama_barang_panjang').focus();
                         }
                     });
                   } else {
                     $('#barcode').focus();
-                    $('#view_barcode').attr('src',"<?php echo base_url(); ?>/Produk/barcode/"+barcode);
+                    $('#view_barcode').attr('src',"WIEDU//Produk/barcode/"+barcode);
                   }
                 });
             }else{
                 $('#nama_barang_panjang').focus();
-                $('#view_barcode').attr('src',"<?php echo base_url(); ?>/Produk/barcode/"+barcode);
+                $('#view_barcode').attr('src',"WIEDU//Produk/barcode/"+barcode);
             }
         }
     });
@@ -715,25 +528,25 @@
             kode_menu:kode_menu,
         };
         if (kode_level == '') {
-            toast('Peringatan!','Level tidak boleh kosong');
+            swal('Peringatan!','Level tidak boleh kosong');
         }else if (kode_menu == '') {
-            toast('Peringatan!','Menu harus dipilih');
+            swal('Peringatan!','Menu harus dipilih');
         }else{
             $.ajax({
                 data:value,
-                url:'<?php echo base_url(); ?>setting/simpan_akses',
+                url:'WIEDU/setting/simpan_akses',
                 type:'POST',
                 success:function(data){
                     if (data == 0) {
                         reload_akses(kode_level);
                         getKode();
                     }else if (data == 3) {
-                        toast('Peringatan','Data sudah tersedia','warning');
+                        swal('Peringatan','Data sudah tersedia','warning');
                         var table = $('#table_level').DataTable();
                         table.ajax.reload(null,false);
                     }
                     else{
-                        toast('Gagal','Data gagal dimasukan','danger');
+                        swal('Gagal','Data gagal dimasukan','error');
                     }
                 }
             });
@@ -748,14 +561,14 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>setting/hapus_akses',
+            url:'WIEDU/setting/hapus_akses',
             type:'POST',
             success:function(data){
                 if (data == 0) {
                     reload_akses(kode_level);
                 }
                 else{
-                    toast('Gagal','Data gagal dihapus','danger');
+                    swal('Gagal','Data gagal dihapus','error');
                 }
             }
         })
@@ -767,16 +580,16 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>kategori/hapus_kategori',
+            url:'WIEDU/kategori/hapus_kategori',
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    toast('Berhasil','Data berhasil duhapus','success');
+                    swal('Berhasil','Data berhasil duhapus','success');
                     var table = $('#table_kategori').DataTable();
                     table.ajax.reload();
                 }
                 else{
-                    toast('Gagal','Data gagal dihapus','error');
+                    swal('Gagal','Data gagal dihapus','error');
                 }
             }
         })
@@ -788,20 +601,17 @@
         };
         $.ajax({
             data:value,
-            url:'<?php echo base_url(); ?>sub_kategori/hapus_sub_kategori',
+            url:'WIEDU/sub_kategori/hapus_sub_kategori',
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    toast('Berhasil','Data berhasil duhapus','success');
+                    swal('Berhasil','Data berhasil duhapus','success');
                     var table = $('#table_sub_kategori').DataTable();
                     table.ajax.reload();
                 }
                 else{
-                    toast('Gagal','Data gagal dihapus','error');
+                    swal('Gagal','Data gagal dihapus','error');
                 }
             }
         })
     });
-</script>
-</body>
-</html>
