@@ -164,6 +164,7 @@
 </div>
 <!--/#app -->
 <script src="<?php echo base_url() ?>assets/js/app.js"></script>
+<script src="<?php echo base_url() ?>assets/js/toast.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     $(document).ready(function(){
@@ -266,21 +267,27 @@
             success:function(data){
                 
                 if (data == 0) {
-                    swal('Berhasil','Data berhasil dimasukan','success');
+                    $.toast({
+                        heading: 'Berhasil',
+                        text: 'Data berhasil diinput',
+                        icon: 'success',
+                        loader: true,        // Change it to false to disable loader
+                        loaderBg: '#9EC600'  // To change the background
+                    });
                     var table = $('#table_level').DataTable();
                     table.ajax.reload();
                 }else if (data == 2) {
-                    swal('Berhasil','Data berhasil diubah','success');
+                    toast('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_level').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    swal('Peringatan','Data sudah tersedia','warning');
+                    toast('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_level').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dimasukan','danger');
+                    toast('Gagal','Data gagal dimasukan','danger');
                 }
             }
         });
@@ -305,21 +312,27 @@
             success:function(data){
                 
                 if (data == 0) {
-                    swal('Berhasil','Data berhasil dimasukan','success');
+                    $.toast({
+                        heading: 'Berhasil',
+                        text: 'Data berhasil diinput',
+                        icon: 'success',
+                        loader: true,        // Change it to false to disable loader
+                        loaderBg: '#9EC600'  // To change the background
+                    })
                     var table = $('#table_menu').DataTable();
                     table.ajax.reload();
                 }else if (data == 2) {
-                    swal('Berhasil','Data berhasil diubah','success');
+                    toast('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    swal('Peringatan','Data sudah tersedia','warning');
+                    toast('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dimasukan','danger');
+                    toast('Gagal','Data gagal dimasukan','danger');
                 }
             }
         });
@@ -342,21 +355,27 @@
             success:function(data){
                 
                 if (data == 0) {
-                    swal('Berhasil','Data berhasil dimasukan','success');
+                    $.toast({
+                        heading: 'Berhasil',
+                        text: 'Data berhasil diinput',
+                        icon: 'success',
+                        loader: true,        // Change it to false to disable loader
+                        loaderBg: '#9EC600'  // To change the background
+                    });
                     var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload();
                 }else if (data == 2) {
-                    swal('Berhasil','Data berhasil diubah','success');
+                    toast('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    swal('Peringatan','Data sudah tersedia','warning');
+                    toast('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dimasukan','danger');
+                    toast('Gagal','Data gagal dimasukan','danger');
                 }
             }
         });
@@ -372,12 +391,12 @@
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    swal('Berhasil','Data dihapus dimasukan','success');
+                    toast('Berhasil','Data dihapus dimasukan','success');
                     var table = $('#table_level').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dihapus','danger');
+                    toast('Gagal','Data gagal dihapus','danger');
                 }
             }
         })
@@ -393,12 +412,12 @@
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    swal('Berhasil','Data dihapus dimasukan','success');
+                    toast('Berhasil','Data dihapus dimasukan','success');
                     var table = $('#table_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dihapus','danger');
+                    toast('Gagal','Data gagal dihapus','danger');
                 }
             }
         })
@@ -414,12 +433,12 @@
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    swal('Berhasil','Data dihapus dimasukan','success');
+                    toast('Berhasil','Data dihapus dimasukan','success');
                     var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dihapus','danger');
+                    toast('Gagal','Data gagal dihapus','danger');
                 }
             }
         })
@@ -492,7 +511,7 @@
         if(e.which == 13) {
             
             if (barcode == '') {
-                swal({
+                toast({
                   title: "Generate barcode ?",
                   text: "Apakah barcode pabrik tidak tersedia ?",
                   icon: "warning",
@@ -549,9 +568,9 @@
             kode_menu:kode_menu,
         };
         if (kode_level == '') {
-            swal('Peringatan!','Level tidak boleh kosong');
+            toast('Peringatan!','Level tidak boleh kosong');
         }else if (kode_menu == '') {
-            swal('Peringatan!','Menu harus dipilih');
+            toast('Peringatan!','Menu harus dipilih');
         }else{
             $.ajax({
                 data:value,
@@ -562,12 +581,12 @@
                         reload_akses(kode_level);
                         getKode();
                     }else if (data == 3) {
-                        swal('Peringatan','Data sudah tersedia','warning');
+                        toast('Peringatan','Data sudah tersedia','warning');
                         var table = $('#table_level').DataTable();
                         table.ajax.reload(null,false);
                     }
                     else{
-                        swal('Gagal','Data gagal dimasukan','danger');
+                        toast('Gagal','Data gagal dimasukan','danger');
                     }
                 }
             });
@@ -589,7 +608,7 @@
                     reload_akses(kode_level);
                 }
                 else{
-                    swal('Gagal','Data gagal dihapus','danger');
+                    toast('Gagal','Data gagal dihapus','danger');
                 }
             }
         })
