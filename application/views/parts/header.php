@@ -10,6 +10,7 @@
     <title>Wiedu POS</title>
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/toast.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
      
     <style>
