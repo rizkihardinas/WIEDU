@@ -183,6 +183,22 @@
                 {"data": "action",width:170}
             ]
 
+        });$('#table_satuan').DataTable({ 
+            "processing": true, //Feature control the processing indicator.
+            "serverSide": true, //Feature control DataTables' server-side processing mode.
+            "order": [], //Initial no order.
+            // Load data for the table's content from an Ajax source
+            "ajax": {
+                "url": '<?php echo base_url(); ?>/satuan/get_satuan',
+                "type": "POST"
+            },
+            "sColumns": [
+                {"data": "kode_satuan",width:170},
+                {"data": "nama_satuan",width:220},
+                {"data": "status_satuan",width:220},
+                {"data": "action",width:170}
+            ]
+
         });
         $('#table_menu').DataTable({ 
             "processing": true, //Feature control the processing indicator.
@@ -319,6 +335,48 @@
                 else if (data == 3) {
                     toast('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_level').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else{
+                    toast('Gagal','Data gagal dimasukan','danger');
+                }
+            }
+        });
+    });
+
+    $(document).on('click','#btnSimpanSatuan',function () {
+        var kode_level = $('#kode_satuan').val();
+        var nama_satuan = $('#nama_satuan').val();
+        var status = $(this).attr('status');
+        var value = {
+            kode_satuan:kode_satuan,
+            nama_satuan:nama_satuan,
+            status:status
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>/satuan/simpan_satuan',
+            type:'POST',
+            success:function(data){
+                
+                if (data == 0) {
+                    $.toast({
+                        heading: 'Berhasil',
+                        text: 'Data berhasil diinput',
+                        icon: 'success',
+                        loader: true,        // Change it to false to disable loader
+                        loaderBg: '#9EC600'  // To change the background
+                    });
+                    var table = $('#table_satuan').DataTable();
+                    table.ajax.reload();
+                }else if (data == 2) {
+                    toast('Berhasil','Data berhasil diubah','success');
+                    var table = $('#table_satuan').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else if (data == 3) {
+                    toast('Peringatan','Data sudah tersedia','warning');
+                    var table = $('#table_satuan').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
