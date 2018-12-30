@@ -41,7 +41,7 @@
                         <li>
                             <a href="#">
                                 <div class="avatar float-left">
-                                    <img src="assets/img/dummy/u4.png" alt="">
+                                    <img src="<?php echo base_url() ?>assets/img/dummy/u4.png" alt="">
                                     <span class="avatar-badge busy"></span>
                                 </div>
                                 <h4>
@@ -56,7 +56,7 @@
                         <li>
                             <a href="#">
                                 <div class="avatar float-left">
-                                    <img src="assets/img/dummy/u1.png" alt="">
+                                    <img src="<?php echo base_url() ?>assets/img/dummy/u1.png" alt="">
                                     <span class="avatar-badge online"></span>
                                 </div>
                                 <h4>
@@ -71,7 +71,7 @@
                         <li>
                             <a href="#">
                                 <div class="avatar float-left">
-                                    <img src="assets/img/dummy/u2.png" alt="">
+                                    <img src="<?php echo base_url() ?>assets/img/dummy/u2.png" alt="">
                                     <span class="avatar-badge idle"></span>
                                 </div>
                                 <h4>
@@ -86,7 +86,7 @@
                         <li>
                             <a href="#">
                                 <div class="avatar float-left">
-                                    <img src="assets/img/dummy/u3.png" alt="">
+                                    <img src="<?php echo base_url() ?>assets/img/dummy/u3.png" alt="">
                                     <span class="avatar-badge busy"></span>
                                 </div>
                                 <h4>
@@ -149,7 +149,7 @@
         <!-- User Account-->
         <li class="dropdown custom-dropdown user user-menu ">
             <a href="#" class="nav-link" data-toggle="dropdown">
-                <img src="assets/img/dummy/u8.png" class="user-image" alt="User Image">
+                <img src="<?php echo base_url() ?>assets/img/dummy/u8.png" class="user-image" alt="User Image">
                 <i class="icon-more_vert "></i>
             </a>
             <div class="dropdown-menu p-4 dropdown-menu-right">

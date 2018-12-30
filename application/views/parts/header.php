@@ -10,6 +10,7 @@
     <title>Wiedu POS</title>
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/app.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/jquery.toast.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
      
     <style>
@@ -30,12 +31,6 @@
             left: 50%;
         }
     </style>
-    <!-- Js -->
-    <!--
-    --- Head Part - Use Jquery anywhere at page.
-    --- http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/
-    -->
-    <script>(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)</script>
 </head>
 <body class="light">
 <div id="app">
@@ -57,7 +52,7 @@
                         <img class="user_avatar" src="<?php echo base_url(); ?>assets/img/dummy/u2.png" alt="User Image">
                     </div>
                     <div class="float-left info">
-                        <h6 class="font-weight-light mt-2 mb-1">Wilgan Jovisa</h6>
+                        <h6 class="font-weight-light mt-2 mb-1">Rizki Hardinas P</h6>
                         <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
                     </div>
                 </div>
