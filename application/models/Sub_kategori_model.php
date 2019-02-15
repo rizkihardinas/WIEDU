@@ -2,7 +2,7 @@
 /**
  * 
  */
-class Sub_kategori_model extends CI_Controller{
+class Sub_kategori_model extends CI_Model{
 	
 	function __construct()
 	{

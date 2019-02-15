@@ -2,7 +2,7 @@
 /**
  * 
  */
-class Kategori_model extends CI_Controller
+class Kategori_model extends CI_Model
 {
 	
 	function __construct()

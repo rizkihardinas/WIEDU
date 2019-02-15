@@ -165,9 +165,33 @@
 <!--/#app -->
 <script src="<?php echo base_url() ?>assets/js/app.js"></script>
 <script src="<?php echo base_url() ?>assets/js/toast.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/jquery.toast.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script>
-    $(document).ready(function(){
+    var d = new Date();
+    var month = d.getMonth()+1;
+    var day = d.getDate();
+
+    var output = ((''+month).length<2 ? '0' : '') + month + '/' +
+        ((''+day).length<2 ? '0' : '') + day+ '/'+d.getFullYear();
+    $('#tgl_input').val(output);
+    /** add active class and stay opened when selected */
+    
+    $(document).ready(function($){
+        $(document).on('click','#btnModalSupplier',function(){
+        $('#modalSupplier').modal('show');
+        });
+
+        function get_supplier(){
+            $.ajax({
+                url:'<?php echo base_url(); ?>supplier/get_supplier',
+                success:function(data){
+                    $('#data_supplier').html(data);
+                }
+            });
+        };
+        get_supplier();
         $('#table_level').DataTable({ 
             "processing": true, //Feature control the processing indicator.
             "serverSide": true, //Feature control DataTables' server-side processing mode.
@@ -232,19 +256,35 @@
             ]
 
         });
-        $('#table_sub_kategori').DataTable({ 
+        $('#table_satuan').DataTable({ 
             "processing": true, //Feature control the processing indicator.
             "serverSide": true, //Feature control DataTables' server-side processing mode.
             "order": [], //Initial no order.
             // Load data for the table's content from an Ajax source
             "ajax": {
-                "url": '<?php echo base_url(); ?>/sub_kategori/get_sub_kategori',
+                "url": '<?php echo base_url(); ?>/satuan/get_satuan',
                 "type": "POST"
             },
             "sColumns": [
                 {"data": "kode_sub_kategori",width:220},
                 {"data": "nama_kategori",width:220},
                 {"data": "nama_sub_kategori",width:220},
+                {"data": "action",width:170}
+            ]
+
+        });
+        $('#table_brand').DataTable({ 
+            "processing": true, //Feature control the processing indicator.
+            "serverSide": true, //Feature control DataTables' server-side processing mode.
+            "order": [], //Initial no order.
+            // Load data for the table's content from an Ajax source
+            "ajax": {
+                "url": '<?php echo base_url(); ?>/brand/get_brand',
+                "type": "POST"
+            },
+            "sColumns": [
+                {"data": "kode_sub_kategori",width:220},
+                {"data": "nama_kategori",width:220},
                 {"data": "action",width:170}
             ]
 
@@ -274,34 +314,17 @@
             success:function(data){
                 $('#kode_level').val(data);
                 $('#kode_akses').val(data);
+                $('#kode_satuan').val(data);
                 $('#kode_menu').val(data);
+                $('#kode_brand').val(data);
                 $('#kode_parent_menu').val(data);
                 $('#kode_sub_kategori').val(data);
                 $('#kode_kategori').val(data);
+                $('#kode_supplier').val(data);
             }
         });
     }
-    var d = new Date();
-    var month = d.getMonth()+1;
-    var day = d.getDate();
-
-    var output = ((''+month).length<2 ? '0' : '') + month + '/' +
-        ((''+day).length<2 ? '0' : '') + day+ '/'+d.getFullYear();
-    $('#tgl_input').val(output);
-    /** add active class and stay opened when selected */
-    var url = window.location;
-
-    // for sidebar menu entirely but not cover treeview
-    $('ul.sidebar-menu a').filter(function() {
-       return this.href == url;
-    }).parent().addClass('active');
-
-
-    // for treeview
-    $('ul.treeview-menu a').filter(function() {
-       return this.href == url;
-    }).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active');
-    (function($,d){$.each(readyQ,function(i,f){$(f)});$.each(bindReadyQ,function(i,f){$(d).bind("ready",f)})})(jQuery,document)
+    
     $(document).on('click','#btnSimpanLevel',function () {
         var kode_level = $('#kode_level').val();
         var nama_level = $('#nama_level').val();
@@ -385,6 +408,31 @@
             }
         });
     });
+    $(document).on('keypress','#nama_perusahaan_supplier',function(e){
+        if (e.which ==13) {
+            var nama_perusahaan_supplier = $('#nama_perusahaan_supplier').val();
+            var value = {
+                nama_perusahaan_supplier:nama_perusahaan_supplier
+            };
+            $.ajax({
+                url:'<?php echo base_url() ?>Supplier/cek_supplier',
+                data:value,
+                type:'POST',
+                success:function(data){
+                    if (data == 1) {
+                        $('#nama_supplier').focus();
+                    }else{
+                       $.toast({
+                            heading:'Peringatan',
+                            text:data,
+                            icon:'error'
+                        });
+                        $('#nama_perusahaan_supplier').focus(); 
+                    }
+                }
+            });
+        }
+    });
     $(document).on('click','#btnSimpanKategori',function () {
         var kode_kategori = $('#kode_kategori').val();
         var nama_kategori = $('#nama_kategori').val();
@@ -417,6 +465,107 @@
                 else{
                     toast('Gagal','Data gagal dimasukan','error');
                 }
+            }
+        });
+    });
+    $(document).on('click','#btnSimpanSupplier',function(){
+        var kode_supplier = $('#kode_supplier').val();
+        var nama_supplier = $('#nama_supplier').val();
+        var nama_perusahaan_supplier = $('#nama_perusahaan_supplier').val();
+        var no_telp_perusahaan = $('#no_telp_perusahaan').val();
+        var no_telp_supplier     = $('#no_telp_supplier').val();
+        var email_supplier = $('#email_supplier').val();
+        var kelurahan_supplier  = $('#kelurahan_supplier').val();
+        var kodepos_supplier = $('#kodepos_supplier').val();
+        var alamat_lengkap_supplier = $('#alamat_lengkap_supplier').val();
+        var kode_bank = $('#kode_bank').val();
+        var atas_nama_supplier = $('#atas_nama_supplier').val();
+        var no_rek_supplier = $('#no_rek_supplier').val();
+        var kode_user = $('#kode_user').val();
+        var status = $(this).attr('status');
+        var value = {
+            kode_supplier:kode_supplier,
+            nama_supplier:nama_supplier,
+            nama_perusahaan_supplier:nama_perusahaan_supplier,
+            no_telp_perusahaan:no_telp_perusahaan,
+            no_telp_supplier:no_telp_supplier,
+            email_supplier:email_supplier,
+            kelurahan_supplier:kelurahan_supplier,
+            kodepos_supplier:kodepos_supplier,
+            alamat_lengkap_supplier:alamat_lengkap_supplier,
+            kode_bank:kode_bank,
+            atas_nama_supplier:atas_nama_supplier,
+            no_rek_supplier:no_rek_supplier,
+            kode_user:kode_user
+        }
+        $.ajax({
+            url:'<?php echo base_url(); ?>Supplier/simpan_supplier',
+            data:value,
+            type:'POST',
+            success:function(data){
+                if (data == 1) {
+                    $.toast({
+                        heading:'Berhasil',
+                        text:'Supplier berhasil dimasukan',
+                        icon:'success'
+                    });
+                    get_supplier();
+                }else if(data == 2){
+                    $.toast({
+                        heading:'Berhasil',
+                        text:'Supplier berhasil diubah',
+                        icon:'success'
+                    });
+                    get_supplier();
+                }else{
+                    $.toast({
+                        heading:'Gagal',
+                        text:'Supplier gagal diubah',
+                        icon:'error'
+                    });
+                }
+            }
+        })
+    });
+    $(document).on('change','#provinsi_supplier',function(){
+        var kode =  $('#provinsi_supplier').val();
+        var value = {
+            kode:kode
+        };
+        $.ajax({
+            url:'<?php echo base_url() ?>Supplier/get_kota',
+            type:'POST',
+            data:value,
+            success:function(data){
+               $('#kabupaten_supplier').html(data);
+            }
+        });
+    });
+    $(document).on('change','#kabupaten_supplier',function(){
+        var kode =  $('#kabupaten_supplier').val();
+        var value = {
+            kode:kode
+        };
+        $.ajax({
+            url:'<?php echo base_url() ?>Supplier/get_kecamatan',
+            type:'POST',
+            data:value,
+            success:function(data){
+               $('#kecamatan_supplier').html(data);
+            }
+        });
+    });
+    $(document).on('change','#kecamatan_supplier',function(){
+        var kode =  $('#kecamatan_supplier').val();
+        var value = {
+            kode:kode
+        };
+        $.ajax({
+            url:'<?php echo base_url() ?>Supplier/get_kelurahan',
+            type:'POST',
+            data:value,
+            success:function(data){
+               $('#kelurahan_supplier').html(data);
             }
         });
     });
@@ -711,7 +860,7 @@
             }
         })
     });
-    $('#barcode').keypress(function(e) {
+    $(document).on('keypress','#barcode',function(e) {
         var barcode = $('#barcode').val();
         if(e.which == 13) {
             
@@ -726,7 +875,7 @@
                 .then((generateBarcode) => {
                   if (generateBarcode) {
                     $.ajax({
-                        url: '<?php echo base_url(); ?>Produk/generate_barcode',
+                        url: '<?php echo base_url() ?>Produk/generate_barcode',
                         success:function(data){
                             $('#barcode').val(data);
                             $('#view_barcode').attr('src',"<?php echo base_url(); ?>/Produk/barcode/"+data);
@@ -860,6 +1009,166 @@
             }
         })
     });
+    $(document).on('click','#btnSimpanBrand',function () {
+        var kode_brand = $('#kode_brand').val();
+        var nama_brand = $('#nama_brand').val();
+        var status = $(this).attr('status');
+        var value = {
+            kode_brand:kode_brand,
+            nama_brand:nama_brand,
+            status:status
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>brand/simpan_brand',
+            type:'POST',
+            success:function(data){
+                if (data == 0) {
+                    swal('Berhasil','Data berhasil dimasukan','success');
+                    var table = $('#table_brand').DataTable();
+                    table.ajax.reload();
+                    getKode();
+                    $('#btnSimpanBrand').attr('status','simpan'); 
+                }else if (data == 2) {
+                    swal('Berhasil','Data berhasil diubah','success');
+                    var table = $('#table_brand').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else if (data == 3) {
+                    swal('Peringatan','Data sudah tersedia','warning');
+                    var table = $('#table_brand').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else{
+                    swal('Gagal','Data gagal dimasukan','error');
+                }
+            }
+        });
+    });
+    $(document).on('click','#btnHapusBrand',function () {
+        var kode_brand = $(this).attr('data-id');
+        var value = {
+            kode_brand:kode_brand
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>brand/hapus_brand',
+            type:'POST',
+            success:function(data){
+                if (data == 0) {
+                    swal('Berhasil','Data berhasil duhapus','success');
+                    var table = $('#table_brand').DataTable();
+                    table.ajax.reload();
+                }
+                else{
+                    swal('Gagal','Data gagal dihapus','error');
+                }
+            }
+        })
+    });
+    $(document).on('click','#btnEditBrand',function () {
+        var kode = $(this).attr('data-id');
+        var value = {
+            kode:kode
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>brand/get_detail_brand',
+            type:'POST',
+            success:function(data){
+                var json = jQuery.parseJSON(data);
+                var kode_brand = json[0].kode_brand;
+                var kode_parent_brand = json[0].kode_parent_brand;
+                var nama_brand = json[0].nama_brand;
+                var url = json[0].url;
+                $('#kode_brand').val(kode_brand);
+                $('#nama_brand').val(nama_brand);
+                $('#nama_brand').focus();
+                $('#btnSimpanBrand').attr('status','ubah'); 
+            }
+        })
+    });
+
+    $(document).on('click','#btnSimpanSatuan',function () {
+        var kode_satuan = $('#kode_satuan').val();
+        var nama_satuan = $('#nama_satuan').val();
+        var status = $(this).attr('status');
+        var value = {
+            kode_satuan:kode_satuan,
+            nama_satuan:nama_satuan,
+            status:status
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>satuan/simpan_satuan',
+            type:'POST',
+            success:function(data){
+                if (data == 0) {
+                    swal('Berhasil','Data berhasil dimasukan','success');
+                    var table = $('#table_satuan').DataTable();
+                    table.ajax.reload();
+                    getKode();
+                    $('#btnSimpanSatuan').attr('status','simpan'); 
+                }else if (data == 2) {
+                    swal('Berhasil','Data berhasil diubah','success');
+                    var table = $('#table_satuan').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else if (data == 3) {
+                    swal('Peringatan','Data sudah tersedia','warning');
+                    var table = $('#table_satuan').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else{
+                    swal('Gagal','Data gagal dimasukan','error');
+                }
+            }
+        });
+    });
+    $(document).on('click','#btnHapusSatuan',function () {
+        var kode_satuan = $(this).attr('data-id');
+        var value = {
+            kode_satuan:kode_satuan
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>satuan/hapus_satuan',
+            type:'POST',
+            success:function(data){
+                if (data == 0) {
+                    swal('Berhasil','Data berhasil duhapus','success');
+                    var table = $('#table_satuan').DataTable();
+                    table.ajax.reload();
+                }
+                else{
+                    swal('Gagal','Data gagal dihapus','error');
+                }
+            }
+        })
+    });
+    $(document).on('click','#btnEditSatuan',function () {
+        var kode = $(this).attr('data-id');
+        var value = {
+            kode:kode
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>satuan/get_detail_satuan',
+            type:'POST',
+            success:function(data){
+                var json = jQuery.parseJSON(data);
+                var kode_satuan = json[0].kode_satuan;
+                var kode_parent_satuan = json[0].kode_parent_satuan;
+                var nama_satuan = json[0].nama_satuan;
+                var url = json[0].url;
+                $('#kode_satuan').val(kode_satuan);
+                $('#nama_satuan').val(nama_satuan);
+                $('#nama_satuan').focus();
+                $('#btnSimpanBrand').attr('status','ubah'); 
+            }
+        })
+    });
+    
 </script>
 </body>
 </html>
