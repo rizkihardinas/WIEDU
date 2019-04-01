@@ -26,6 +26,15 @@ class Setting_model extends CI_Model
 		$query = $this->db->get('tb_level');
 		return $query->result_array();
 	}
+	function cek_satuan($cek_nama){
+		$this->db->where('nama_satuan',$cek_nama);
+		$query = $this->db->get('tb_satuan');
+		return $query->result_array();
+	}
+	function ubah_satuan($data,$kode){
+		$this->db->where('kode_satuan',$kode);
+		$this->db->update('tb_satuan',$data);
+	}
 	function cek_menu($cek_nama){
 		$this->db->where('nama_menu',$cek_nama);
 		$query = $this->db->get('tb_menu');
@@ -49,6 +58,12 @@ class Setting_model extends CI_Model
         $this->datatables->select('kode_level,nama_level');
         $this->datatables->from('tb_level');
         $this->datatables->add_column('action','<button class="btn btn-warning" id="btnEditLevel" data-id="$1"><i class="icon icon-pencil"></i>&nbsp;</button><button class="btn btn-danger" id="btnHapusLevel" data-id="$1"><center><i class="icon icon-trash"></i></center></button>','kode_level');
+        return $this->datatables->generate();
+	}	
+	function get_all_satuan() {
+        $this->datatables->select('kode_satuan,nama_satuan,status_satuan');
+        $this->datatables->from('tb_satuan');
+        $this->datatables->add_column('action','<button class="btn btn-warning" id="btnEditSatuan" data-id="$1"><i class="icon icon-pencil"></i>&nbsp;</button><button class="btn btn-danger" id="btnHapusSatuan" data-id="$1"><center><i class="icon icon-trash"></i></center></button>','kode_level');
         return $this->datatables->generate();
 	}	
 	function get_all_akses() {
@@ -80,6 +95,9 @@ class Setting_model extends CI_Model
 	}
 	function simpan_akses($data){
 		$query = $this->db->insert('tb_akses',$data);
+	}
+	function simpan_satuan($data){
+		$query = $this->db->insert('tb_satuan',$data);
 	}
 	function simpan_menu($data){
 		$query = $this->db->insert('tb_menu',$data);

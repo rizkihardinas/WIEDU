@@ -164,6 +164,7 @@
 </div>
 <!--/#app -->
 <script src="<?php echo base_url() ?>assets/js/app.js"></script>
+<script src="<?php echo base_url() ?>assets/js/toast.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/jquery.toast.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -203,6 +204,22 @@
             "sColumns": [
                 {"data": "kode_level",width:170},
                 {"data": "nama_level",width:220},
+                {"data": "action",width:170}
+            ]
+
+        });$('#table_satuan').DataTable({ 
+            "processing": true, //Feature control the processing indicator.
+            "serverSide": true, //Feature control DataTables' server-side processing mode.
+            "order": [], //Initial no order.
+            // Load data for the table's content from an Ajax source
+            "ajax": {
+                "url": '<?php echo base_url(); ?>/satuan/get_satuan',
+                "type": "POST"
+            },
+            "sColumns": [
+                {"data": "kode_satuan",width:170},
+                {"data": "nama_satuan",width:220},
+                {"data": "status_satuan",width:220},
                 {"data": "action",width:170}
             ]
 
@@ -324,21 +341,69 @@
             success:function(data){
                 
                 if (data == 0) {
-                    swal('Berhasil','Data berhasil dimasukan','success');
+                    $.toast({
+                        heading: 'Berhasil',
+                        text: 'Data berhasil diinput',
+                        icon: 'success',
+                        loader: true,        // Change it to false to disable loader
+                        loaderBg: '#9EC600'  // To change the background
+                    });
                     var table = $('#table_level').DataTable();
                     table.ajax.reload();
                 }else if (data == 2) {
-                    swal('Berhasil','Data berhasil diubah','success');
+                    toast('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_level').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    swal('Peringatan','Data sudah tersedia','warning');
+                    toast('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_level').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dimasukan','error');
+                    toast('Gagal','Data gagal dimasukan','danger');
+                }
+            }
+        });
+    });
+
+    $(document).on('click','#btnSimpanSatuan',function () {
+        var kode_level = $('#kode_satuan').val();
+        var nama_satuan = $('#nama_satuan').val();
+        var status = $(this).attr('status');
+        var value = {
+            kode_satuan:kode_satuan,
+            nama_satuan:nama_satuan,
+            status:status
+        };
+        $.ajax({
+            data:value,
+            url:'<?php echo base_url(); ?>/satuan/simpan_satuan',
+            type:'POST',
+            success:function(data){
+                
+                if (data == 0) {
+                    $.toast({
+                        heading: 'Berhasil',
+                        text: 'Data berhasil diinput',
+                        icon: 'success',
+                        loader: true,        // Change it to false to disable loader
+                        loaderBg: '#9EC600'  // To change the background
+                    });
+                    var table = $('#table_satuan').DataTable();
+                    table.ajax.reload();
+                }else if (data == 2) {
+                    toast('Berhasil','Data berhasil diubah','success');
+                    var table = $('#table_satuan').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else if (data == 3) {
+                    toast('Peringatan','Data sudah tersedia','warning');
+                    var table = $('#table_satuan').DataTable();
+                    table.ajax.reload(null,false);
+                }
+                else{
+                    toast('Gagal','Data gagal dimasukan','danger');
                 }
             }
         });
@@ -383,22 +448,22 @@
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    swal('Berhasil','Data berhasil dimasukan','success');
+                    toast('Berhasil','Data berhasil dimasukan','success');
                     var table = $('#table_kategori').DataTable();
                     table.ajax.reload();
                     getKode();
                 }else if (data == 2) {
-                    swal('Berhasil','Data berhasil diubah','success');
+                    toast('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_kategori').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    swal('Peringatan','Data sudah tersedia','warning');
+                    toast('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_kategori').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dimasukan','error');
+                    toast('Gagal','Data gagal dimasukan','error');
                 }
             }
         });
@@ -521,22 +586,22 @@
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    swal('Berhasil','Data berhasil dimasukan','success');
+                    toast('Berhasil','Data berhasil dimasukan','success');
                     var table = $('#table_sub_kategori').DataTable();
                     table.ajax.reload();
                     getKode();
                 }else if (data == 2) {
-                    swal('Berhasil','Data berhasil diubah','success');
+                    toast('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_sub_kategori').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    swal('Peringatan','Data sudah tersedia','warning');
+                    toast('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_sub_kategori').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dimasukan','error');
+                    toast('Gagal','Data gagal dimasukan','error');
                 }
             }
         });
@@ -561,21 +626,27 @@
             success:function(data){
                 
                 if (data == 0) {
-                    swal('Berhasil','Data berhasil dimasukan','success');
+                    $.toast({
+                        heading: 'Berhasil',
+                        text: 'Data berhasil diinput',
+                        icon: 'success',
+                        loader: true,        // Change it to false to disable loader
+                        loaderBg: '#9EC600'  // To change the background
+                    })
                     var table = $('#table_menu').DataTable();
                     table.ajax.reload();
                 }else if (data == 2) {
-                    swal('Berhasil','Data berhasil diubah','success');
+                    toast('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    swal('Peringatan','Data sudah tersedia','warning');
+                    toast('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dimasukan','error');
+                    toast('Gagal','Data gagal dimasukan','danger');
                 }
             }
         });
@@ -598,21 +669,27 @@
             success:function(data){
                 
                 if (data == 0) {
-                    swal('Berhasil','Data berhasil dimasukan','success');
+                    $.toast({
+                        heading: 'Berhasil',
+                        text: 'Data berhasil diinput',
+                        icon: 'success',
+                        loader: true,        // Change it to false to disable loader
+                        loaderBg: '#9EC600'  // To change the background
+                    });
                     var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload();
                 }else if (data == 2) {
-                    swal('Berhasil','Data berhasil diubah','success');
+                    toast('Berhasil','Data berhasil diubah','success');
                     var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else if (data == 3) {
-                    swal('Peringatan','Data sudah tersedia','warning');
+                    toast('Peringatan','Data sudah tersedia','warning');
                     var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dimasukan','error');
+                    toast('Gagal','Data gagal dimasukan','danger');
                 }
             }
         });
@@ -628,12 +705,12 @@
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    swal('Berhasil','Data dihapus dimasukan','success');
+                    toast('Berhasil','Data dihapus dimasukan','success');
                     var table = $('#table_level').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dihapus','error');
+                    toast('Gagal','Data gagal dihapus','danger');
                 }
             }
         })
@@ -649,12 +726,12 @@
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    swal('Berhasil','Data dihapus dimasukan','success');
+                    toast('Berhasil','Data dihapus dimasukan','success');
                     var table = $('#table_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dihapus','error');
+                    toast('Gagal','Data gagal dihapus','danger');
                 }
             }
         })
@@ -670,12 +747,12 @@
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    swal('Berhasil','Data dihapus dimasukan','success');
+                    toast('Berhasil','Data dihapus dimasukan','success');
                     var table = $('#table_parent_menu').DataTable();
                     table.ajax.reload(null,false);
                 }
                 else{
-                    swal('Gagal','Data gagal dihapus','error');
+                    toast('Gagal','Data gagal dihapus','danger');
                 }
             }
         })
@@ -788,7 +865,7 @@
         if(e.which == 13) {
             
             if (barcode == '') {
-                swal({
+                toast({
                   title: "Generate barcode ?",
                   text: "Apakah barcode pabrik tidak tersedia ?",
                   icon: "warning",
@@ -845,9 +922,9 @@
             kode_menu:kode_menu,
         };
         if (kode_level == '') {
-            swal('Peringatan!','Level tidak boleh kosong');
+            toast('Peringatan!','Level tidak boleh kosong');
         }else if (kode_menu == '') {
-            swal('Peringatan!','Menu harus dipilih');
+            toast('Peringatan!','Menu harus dipilih');
         }else{
             $.ajax({
                 data:value,
@@ -858,12 +935,12 @@
                         reload_akses(kode_level);
                         getKode();
                     }else if (data == 3) {
-                        swal('Peringatan','Data sudah tersedia','warning');
+                        toast('Peringatan','Data sudah tersedia','warning');
                         var table = $('#table_level').DataTable();
                         table.ajax.reload(null,false);
                     }
                     else{
-                        swal('Gagal','Data gagal dimasukan','error');
+                        toast('Gagal','Data gagal dimasukan','danger');
                     }
                 }
             });
@@ -885,7 +962,7 @@
                     reload_akses(kode_level);
                 }
                 else{
-                    swal('Gagal','Data gagal dihapus','error');
+                    toast('Gagal','Data gagal dihapus','danger');
                 }
             }
         })
@@ -901,12 +978,12 @@
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    swal('Berhasil','Data berhasil duhapus','success');
+                    toast('Berhasil','Data berhasil duhapus','success');
                     var table = $('#table_kategori').DataTable();
                     table.ajax.reload();
                 }
                 else{
-                    swal('Gagal','Data gagal dihapus','error');
+                    toast('Gagal','Data gagal dihapus','error');
                 }
             }
         })
@@ -922,12 +999,12 @@
             type:'POST',
             success:function(data){
                 if (data == 0) {
-                    swal('Berhasil','Data berhasil duhapus','success');
+                    toast('Berhasil','Data berhasil duhapus','success');
                     var table = $('#table_sub_kategori').DataTable();
                     table.ajax.reload();
                 }
                 else{
-                    swal('Gagal','Data gagal dihapus','error');
+                    toast('Gagal','Data gagal dihapus','error');
                 }
             }
         })
