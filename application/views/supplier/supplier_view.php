@@ -87,7 +87,7 @@
                                     <option value=''>-- Pilih Provinsi --</option>
                                     <?php foreach ($provinsi as $data): ?>
 
-                                        <option value="<?php echo $data['id'] ?>"><?php echo $data['name'] ?></option>
+                                        <option value="<?php echo $data['id'] ?>"><?php echo $data['nama'] ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>

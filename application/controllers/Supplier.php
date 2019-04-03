@@ -31,14 +31,14 @@ class Supplier extends CI_Controller
 		$data = $this->Wilayah_model->get_kota($kode);
 		foreach ($data as $kota) {
 			
-			echo "<option value='".$kota['id']."'>".$kota['name']."</option>";
+			echo "<option value='".$kota['id']."'>".$kota['nama']."</option>";
 		}
 	}
 	function get_kecamatan(){
 		$kode = $this->input->post('kode');
 		$data = $this->Wilayah_model->get_kecamatan($kode);
 		foreach ($data as $kecamatan) {
-			echo "<option value='".$kecamatan['id']."'>".$kecamatan['name']."</option>";
+			echo "<option value='".$kecamatan['id']."'>".$kecamatan['nama']."</option>";
 		}
 	}
 	function get_kelurahan(){
@@ -46,7 +46,7 @@ class Supplier extends CI_Controller
 		$data = $this->Wilayah_model->get_kelurahan($kode);
 		foreach ($data as $kelurahan) {
 
-			echo "<option value='".$kelurahan['id']."'>".$kelurahan['name']."</option>";
+			echo "<option value='".$kelurahan['id']."'>".$kelurahan['nama']."</option>";
 		}
 	}
 	function simpan_supplier(){

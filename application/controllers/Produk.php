@@ -25,7 +25,7 @@ class Produk extends CI_Controller
 		$this->load->view('parts/sidebar');
 		$this->load->view('produk/paket_view');
 	}
-	function produk(){
+	function index(){
 		$data['parent_menu'] = $this->menu_model->tampil_parent();
 		foreach ($data['parent_menu'] as $parent) {
 			$data['menu'] = $this->menu_model->tampil_menu($parent['kode_parent_menu']);

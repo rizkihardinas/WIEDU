@@ -1,13 +1,42 @@
-.menu{
-	width: 20%;
-	margin: 10px 0 0 10px;
+.no-pad{
+	padding: 0px !important;
+	margin:  0px !important;
 }
-.menu:hover{
-	background:#03a9f4;
+.barmenu{
+	width: 100%;
+	margin: 10px 10px 0px 10px;
+	color: #000;
+	text-align: right;
+	position: relative;
+}
+.menu{
+	margin: 10px 10px 10px 10px;
+	color: #000;
+	text-align: right;
+	position: relative;
+	background:#fff;
+}
+.det-pos{
+	background:#fff;
+}
+.nama{
+ 		position:relative;
+ 		display:flex;
+ 		flex-direction:column;
+ 		min-width:0;
+ 		word-wrap:
+ 		break-word;
+	text-transform: uppercase;
+ 	}
+.animatedParent{
+	background: #f0f0f0;
 }
 .menuname{
 	background:#ecf0f1;
 	text-align: center;
 	font-size: 4px;
 	text-transform: uppercase;
+}
+.center{
+	position: right;
 }
